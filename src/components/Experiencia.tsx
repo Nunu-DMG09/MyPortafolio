@@ -34,16 +34,16 @@ export default function Experiencia() {
       </h2>
 
       <div className="relative">
-        {/* Línea central vertical (visible en md+) */}
+      
         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)] transform -translate-x-1/2" />
 
         <div className="space-y-16">
           {jobs.map((job, idx) => {
-            const isLeft = idx % 2 === 0; // 0 -> izquierda, 1 -> derecha
+            const isLeft = idx % 2 === 0; 
             return (
               <div key={idx} className="relative">
                 <div className="md:grid md:grid-cols-2 md:items-start">
-                  {/* Contenido lado izquierdo */}
+                
                   <div className={`${isLeft ? "md:pr-8 md:text-right" : "md:order-2 md:pl-8 md:text-left"} w-full`}>
                     <div className="inline-block bg-[rgba(255,255,255,0.02)] rounded-md p-6 md:p-8">
                       <p className="text-sm font-medium" style={{ color: "var(--accent-500)" }}>
