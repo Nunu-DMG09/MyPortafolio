@@ -4,16 +4,16 @@ export default function Header() {
   return (
     <header className="w-full">
       <nav className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <div
-            className="w-9 h-9 rounded flex items-center justify-center font-bold"
+            className="w-11 h-11 rounded flex items-center justify-center font-bold"
             style={{ background: "var(--accent-500)" }}
             aria-hidden
           >
-            A
+            ND
           </div>
           <span className="font-semibold text-lg" style={{ color: "var(--text-100)" }}>
-            Mi Portafolio
+            NuDav
           </span>
         </div>
 
@@ -22,34 +22,57 @@ export default function Header() {
           <li><a className="hover:text-[var(--text-100)]" href="#about">Sobre mí</a></li>
           <li><a className="hover:text-[var(--text-100)]" href="#contact">Contacto</a></li>
         </ul>
-
-        <div className="flex items-center gap-3">
-          <button className="px-4 py-2 rounded-full text-sm" style={{ color: "var(--text-100)", border: "1px solid rgba(255,255,255,0.06)" }}>
-            Docs
-          </button>
-          <button className="px-4 py-2 rounded-full text-sm" style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-100)" }}>
-            Contacto
-          </button>
-        </div>
       </nav>
 
-    
-      <div className="w-full py-24">
-        <div className="max-w-4xl mx-auto text-center px-6">
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight" style={{ color: "var(--text-100)" }}>
-            The web framework for content-driven websites
-          </h1>
-          <p className="mt-6" style={{ color: "var(--muted-300)" }}>
-            Astro powers the world's fastest marketing sites, blogs, e-commerce websites, and more.
-          </p>
+      {/* HERO grande */}
+      <div className="w-full min-h-[72vh] flex items-center py-12 md:py-20">
+        <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8">
+            {/* Imagen a la izquierda (public/) — más grande y más cerca al texto */}
+            <div className="flex-shrink-0 md:w-1/3 flex justify-center md:justify-start md:mr-6">
+              <img
+                src="/david-mesta.webp"
+                alt="Foto de Luis David"
+                className="w-44 h-44 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover border-4"
+                style={{ borderColor: "rgba(255,255,255,0.06)" }}
+              />
+            </div>
 
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <button className="px-6 py-3 rounded-full font-medium" style={{ background: "var(--text-100)", color: "#000" }}>
-              Get Started
-            </button>
-            <button className="px-6 py-3 rounded-full font-medium" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "var(--text-100)" }}>
-              Learn Astro
-            </button>
+            {/* Texto a la derecha — más grande y alineado a la derecha */}
+            <div className="md:w-2/3 text-center md:text-right">
+              <h1
+                className="text-4xl md:text-7xl lg:text-5xl font-extrabold leading-tight"
+                style={{ color: "var(--text-100)" }}
+              >
+                Luis David Mesta Gonzales
+              </h1>
+
+              <h3
+                className="mt-4 text-base md:text-lg lg:text-xm max-w-2xl mx-auto md:mx-0"
+                style={{ color: "var(--muted-300)" }}
+              >
+                Apasionado en escribir código, aplicando arquitecturas y código limpio. Me enfoco en crear
+                soluciones mantenibles y eficientes usando buenas prácticas y colaboración en equipo. Énfasis en rendimiento, accesibilidad y escalabilidad.
+              </h3>
+
+              <div className="mt-8 flex items-center justify-center md:justify-end gap-4">
+                <a
+                  href="/cv.pdf"
+                  download
+                  className="px-6 py-3 md:px-8 md:py-4 rounded-full text-base font-medium shadow-sm"
+                  style={{ background: "var(--text-100)", color: "#000" }}
+                >
+                  Descargar mi CV
+                </a>
+                <a
+                  href="#contact"
+                  className="px-6 py-3 md:px-8 md:py-4 rounded-full text-base font-medium"
+                  style={{ border: "1px solid rgba(255,255,255,0.08)", color: "var(--text-100)", background: "transparent" }}
+                >
+                  Contáctame
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
