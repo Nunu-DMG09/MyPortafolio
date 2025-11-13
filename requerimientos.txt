@@ -1,0 +1,2 @@
+npx astro add tailwind
+npm install react react-dom @astrojs/react
