@@ -24,11 +24,10 @@ export default function Header() {
         </ul>
       </nav>
 
-      {/* HERO grande */}
       <div className="w-full min-h-[72vh] flex items-center py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-6 w-full">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8">
-            {/* Imagen a la izquierda (public/) — más grande y más cerca al texto */}
+        
             <div className="flex-shrink-0 md:w-1/3 flex justify-center md:justify-start md:mr-6">
               <img
                 src="/david-mesta.webp"
@@ -38,7 +37,7 @@ export default function Header() {
               />
             </div>
 
-            {/* Texto a la derecha — más grande y alineado a la derecha */}
+           
             <div className="md:w-2/3 text-center md:text-right">
               <h1
                 className="text-4xl md:text-7xl lg:text-5xl font-extrabold leading-tight"

@@ -7,49 +7,49 @@ type Project = {
   techs: string[];
   repo?: string;
   demo?: string;
-  type: "colaborativo" | "personal";
+  type: "hosteado" | "colaborativo" | "personal";
 };
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "Proyecto A",
+    title: "Municipalidad Jose Leonardo Ortiz - Sistemas de denuncias",
     image: "https://source.unsplash.com/collection/190727/800x600?sig=1",
     techs: ["React", "TypeScript", "Tailwind"],
     repo: "#",
     demo: "#",
-    type: "personal",
+    type: "colaborativo",
   },
   {
     id: 2,
-    title: "Proyecto B",
+    title: "Corporación KM GROUP - Pagina web",
     image: "https://source.unsplash.com/collection/190727/800x600?sig=2",
     techs: ["Next.js", "Prisma", "Postgres"],
     repo: "#",
     demo: "#",
-    type: "colaborativo",
+    type: "hosteado",
   },
   {
     id: 3,
-    title: "Proyecto C",
+    title: "Sergio Mesta Gomez Vidafy - Landing Page",
     image: "https://source.unsplash.com/collection/190727/800x600?sig=3",
     techs: ["Astro", "MDX"],
     repo: "#",
     demo: "#",
-    type: "personal",
+    type: "hosteado",
   },
   {
     id: 4,
-    title: "Proyecto D",
+    title: "Tecnico Joel - Tienda virtual",
     image: "https://source.unsplash.com/collection/190727/800x600?sig=4",
     techs: ["React", "GraphQL"],
     repo: "#",
     demo: "#",
-    type: "colaborativo",
+    type: "hosteado",
   },
   {
     id: 5,
-    title: "Proyecto E",
+    title: "NunuMedic",
     image: "https://source.unsplash.com/collection/190727/800x600?sig=5",
     techs: ["Vue", "Tailwind"],
     repo: "#",
@@ -58,36 +58,9 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Proyecto F",
+    title: "Ecolim SAC",
     image: "https://source.unsplash.com/collection/190727/800x600?sig=6",
     techs: ["Node", "Express"],
-    repo: "#",
-    demo: "#",
-    type: "colaborativo",
-  },
-  {
-    id: 7,
-    title: "Proyecto G",
-    image: "https://source.unsplash.com/collection/190727/800x600?sig=7",
-    techs: ["React", "Vite"],
-    repo: "#",
-    demo: "#",
-    type: "personal",
-  },
-  {
-    id: 8,
-    title: "Proyecto H",
-    image: "https://source.unsplash.com/collection/190727/800x600?sig=8",
-    techs: ["Svelte", "Netlify"],
-    repo: "#",
-    demo: "#",
-    type: "colaborativo",
-  },
-  {
-    id: 9,
-    title: "Proyecto I",
-    image: "https://source.unsplash.com/collection/190727/800x600?sig=9",
-    techs: ["TypeScript", "Tailwind"],
     repo: "#",
     demo: "#",
     type: "personal",
@@ -95,9 +68,9 @@ const projects: Project[] = [
 ];
 
 export default function Projectos() {
-  const [filter, setFilter] = useState<"all" | "colaborativo" | "personal">("all");
+  const [filter, setFilter] = useState<"hosteado" | "colaborativo" | "personal">("hosteado");
 
-  const visible = projects.filter((p) => (filter === "all" ? true : p.type === filter));
+  const visible = projects.filter((p) => p.type === filter);
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-16" aria-labelledby="projects-title">
@@ -107,15 +80,15 @@ export default function Projectos() {
 
       <div className="flex justify-center gap-3 mb-8">
         <button
-          onClick={() => setFilter("all")}
-          className={`px-4 py-2 rounded-full text-sm font-medium ${filter === "all" ? "shadow-md" : "opacity-80"}`}
+          onClick={() => setFilter("hosteado")}
+          className={`px-4 py-2 rounded-full text-sm font-medium ${filter === "hosteado" ? "shadow-md" : "opacity-80"}`}
           style={{
-            background: filter === "all" ? "var(--accent-500)" : "transparent",
-            color: filter === "all" ? "#000" : "var(--text-100)",
+            background: filter === "hosteado" ? "var(--accent-500)" : "transparent",
+            color: filter === "hosteado" ? "#000" : "var(--text-100)",
             border: "1px solid rgba(255,255,255,0.04)",
           }}
         >
-          Todos
+          Hosteados
         </button>
         <button
           onClick={() => setFilter("colaborativo")}
