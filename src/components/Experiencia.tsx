@@ -10,15 +10,21 @@ type Job = {
 const jobs: Job[] = [
   {
     title: "Programador Web",
-    company: "Tecnicos Joel",
-    date: "10/02/24 — 14/06/25",
-    description: "Desarrollo de interfaces con React/TypeScript, optimización de rendimiento y accesibilidad.",
+    company: "Tecnico Joel",
+    date: "10/02/25 — 14/06/25",
+    description: "Encargado del área de Tecnología, desarrollando páginas web y landing pages usando JavaScript, PHP, HTML y CSS; creación de interfaces; optimización de rendimiento y accesibilidad.",
   },
   {
     title: "Desarrollador Backend",
     company: "Municipalidad José Leonardo Ortiz",
-    date: "08/08/25 — Actual",
-    description: "Implementación de landing pages, CMS y componentes reutilizables con enfoque en UI/UX.",
+    date: "08/08/25 — 21/11/25",
+    description: "Responsable del desarrollo backend de sistemas internos proporcionados por la empresa, implementación y mantenimiento de APIs, integración con bases de datos y optimización de servicios.",
+  },
+  {
+    title: "Desarrollador Full Stack",
+    company: "Tecnico Joel",
+    date: "25/10/25 — Presente",
+    description: "Líder del área de Desarrollo, coordinación de equipo, definición de arquitectura y desarrollo full‑stack de soluciones escalables y reutilizables.",
   },
 ];
 
@@ -61,7 +67,6 @@ export default function Experiencia() {
                     </div>
                   </div>
 
-                  {/* Punto central */}
                   <div className="md:col-span-2 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 md:top-10">
                     <div className="flex items-center justify-center">
                       <span
@@ -72,9 +77,9 @@ export default function Experiencia() {
                     </div>
                   </div>
 
-                  {/* Spacer / otro lado (para mantener la columna opuesta) */}
+                  
                   <div className={`${isLeft ? "md:order-2 md:pl-8 md:text-left" : "md:pr-8 md:text-right"} hidden md:block`} aria-hidden>
-                    {/* espacio vacío para balancear layout en md+ */}
+                  
                   </div>
                 </div>
               </div>
