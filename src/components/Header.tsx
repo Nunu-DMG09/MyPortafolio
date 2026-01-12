@@ -1,4 +1,5 @@
 import React from "react";
+import { FaGithub } from "react-icons/fa";
 
 export default function Header() {
   return (
@@ -17,18 +18,41 @@ export default function Header() {
           </span>
         </div>
 
-        <ul className="hidden md:flex gap-8 text-sm" style={{ color: "var(--muted-300)" }}>
-          <li><a className="hover:text-[var(--text-100)]" href="#projects">Proyectos</a></li>
-          <li><a className="hover:text-[var(--text-100)]" href="#about">Sobre mí</a></li>
-          <li><a className="hover:text-[var(--text-100)]" href="#contact">Contacto</a></li>
+        <ul className="hidden md:flex gap-8 text-xl" style={{ color: "#ffffff" }}>
+          <li>
+            <a className="hover:text-[var(--text-100)]" href="#projects">
+              Proyectos
+            </a>
+          </li>
+          <li>
+            <a className="hover:text-[var(--text-100)]" href="#about">
+              Sobre mí
+            </a>
+          </li>
+          <li className="flex items-center gap-4">
+            <a className="hover:text-[var(--text-100)]" href="#contact">
+              Contacto
+            </a>
+            <a
+              href="https://github.com/tu-usuario"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-white hover:opacity-90 ml-3"
+              style={{ display: "inline-flex", alignItems: "center" }}
+            >
+              <FaGithub size={28} />
+            </a>
+          </li>
         </ul>
       </nav>
 
+      <hr className="border-t border-[rgba(255,255,255,0.06)] mt-2" />
+
       <div className="w-full min-h-[72vh] flex items-center py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-6 w-full">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8">
-        
-            <div className="flex-shrink-0 md:w-1/3 flex justify-center md:justify-start md:mr-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-4">
+            <div className="flex-shrink-0 md:w-1/3 flex justify-center md:justify-start md:mr-4">
               <img
                 src="/david-mesta.webp"
                 alt="Foto de Luis David"
@@ -37,7 +61,6 @@ export default function Header() {
               />
             </div>
 
-           
             <div className="md:w-2/3 text-center md:text-right">
               <h1
                 className="text-4xl md:text-7xl lg:text-5xl font-extrabold leading-tight"
