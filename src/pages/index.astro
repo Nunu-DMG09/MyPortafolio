@@ -3,6 +3,7 @@ import Header from "../components/Header.tsx";
 import Experiencia from "../components/Experiencia.tsx";
 import Proyectos from "../components/Proyectos.tsx";
 import FormContacto from "../components/FormContacto.tsx";
+import RevealObserver from "../components/RevealObserver";
 import "../styles/global.css";
 ---
 <!doctype html>
@@ -13,6 +14,7 @@ import "../styles/global.css";
     <title>Mi Portafolio</title>
   </head>
   <body>
+    <RevealObserver client:load />
     <Header />
     <main>
       <Experiencia />
