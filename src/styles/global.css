@@ -23,3 +23,31 @@ body{
   background-attachment: fixed;
   -webkit-text-size-adjust: 100%;
 }
+
+/* Reveal on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px) scale(0.995);
+  transition: opacity 620ms cubic-bezier(.2,.9,.2,1), transform 620ms cubic-bezier(.2,.9,.2,1);
+  will-change: opacity, transform;
+}
+
+/* class added by the observer */
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* small utility for elements we want to reveal but stagger */
+.reveal[data-delay] {
+  /* transition-delay será aplicado inline por el observer desde data-delay (ms) */
+}
+
+/* reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
