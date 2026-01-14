@@ -6,23 +6,15 @@ export default function Header() {
 
   return (
     <header className="w-full relative" ref={headerRef}>
-      <nav className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between relative">
-        <div className="flex items-center gap-2">
-          <div
-            className="w-21 h-21 rounded-full flex items-center justify-center font-bold overflow-hidden reveal"
-            data-delay="0"
-            aria-hidden
-            style={{ boxShadow: "0 6px 20px rgba(0,0,0,0.25)" }}
-          >
-            <img
-              src="/nudav-circular1.png"
-              alt="Nudav Studio"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
+      <nav className="max-w-6xl mx-auto px-4 py-1 md:py-2 flex items-center">
+        <img
+          src="/logo-nudav.webp"
+          alt="Nudav Studio"
+          className="w-40 md:w-48 lg:w-56 h-auto object-contain flex-shrink-0"
+          style={{ display: "block" }}
+        />
 
-        <ul className="hidden md:flex gap-8 text-xl" style={{ color: "#ffffff" }}>
+        <ul className="hidden md:flex items-center flex-1 justify-end gap-4 text-base" style={{ color: "#ffffff" }}>
           <li>
             <a className="hover:text-[var(--text-100)] reveal" data-delay="150" href="#experience">
               Experiencia
@@ -57,9 +49,7 @@ export default function Header() {
         </ul>
       </nav>
 
-      <hr className="border-t border-[rgba(255,255,255,0.06)] mt-2" />
-
-      <div className="w-full min-h-[72vh] flex items-center py-12 md:py-20">
+      <div className="w-full min-h-[64vh] flex items-center py-8 md:py-12">
         <div className="max-w-6xl mx-auto px-6 w-full">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-2">
             <div className="flex-shrink-0 md:w-1/3 flex justify-center md:justify-start md:mr-2 relative">
