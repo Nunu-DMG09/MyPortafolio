@@ -81,12 +81,20 @@ export default function Header() {
 
             <div className="md:w-2/3 text-center md:text-right">
               <h1
-                className="text-4xl md:text-7xl lg:text-5xl font-extrabold leading-tight reveal"
+                className="text-4xl md:text-6xl font-extrabold leading-tight reveal"
                 data-delay="700"
-                style={{ color: "#22c55e", fontFamily: "Poppins, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial" }}
+                style={{ color: "#22c55e", fontFamily: "Poppins, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial", marginBottom: 8 }}
               >
-                Luis David Mesta Gonzales
+                David Mesta
               </h1>
+
+              <p
+                className="mt-0 text-lg md:text-xl max-w-2xl mx-auto md:mx-0 reveal"
+                data-delay="720"
+                style={{ color: "#ffffff", opacity: 0.95 }}
+              >
+                Desarrollador Full Stack
+              </p>
 
               <h3
                 className="mt-4 text-base md:text-lg lg:text-xm max-w-2xl mx-auto md:mx-0 reveal"
