@@ -75,7 +75,7 @@ const TechIcon = ({ tech }: { tech: string }) => {
     case "AndroidStudio": return <SiAndroid size={ICON_SIZE} />;
     case "SQLite": return <SiSqlite size={ICON_SIZE} />;
     case "CodeIgniter": return <SiCodeigniter size={ICON_SIZE} />;
-    case "Java": return <FaCoffee size={ICON_SIZE} />; // fallback icon for Java
+    case "Java": return <FaCoffee size={ICON_SIZE} />;
     default: return <span style={{ fontSize: ICON_SIZE }}>🔧</span>;
   }
 };
@@ -181,7 +181,7 @@ export default function Proyectos() {
                       style={
                         {
                           background: "rgba(255,255,255,0.03)",
-                          transition: "all 260ms cubic-bezier(.22,.9,.27,1)",
+                          transition: "all 280ms cubic-bezier(.22,.9,.27,1)",
                           color: "#9ca3af",
                           ['--tech-color' as any]: bg,
                           ['--tech-foreground' as any]: fg,
@@ -189,10 +189,10 @@ export default function Proyectos() {
                       }
                       aria-hidden
                     >
-                      <span className="tech-icon" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", color: "currentColor" }}>
+                      <span className="tech-icon" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
                         <TechIcon tech={t} />
                       </span>
-                      <span className="tech-label" style={{ color: "currentColor" }}>{t}</span>
+                      <span className="tech-label">{t}</span>
                     </span>
                   );
                 })}
@@ -227,16 +227,14 @@ export default function Proyectos() {
               article:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 30px 60px rgba(2,6,23,0.45); }
               article:hover img { transform: scale(1.06); transition: transform 700ms cubic-bezier(.22,.9,.27,1); }
 
-              .tech-pill { cursor: default; color: #9ca3af; }
-              .tech-pill .tech-icon svg { fill: currentColor; stroke: currentColor; }
+              .tech-pill { cursor: default; }
               .tech-pill:hover {
-                background: var(--tech-color);
-                color: var(--tech-foreground);
-                transform: translateY(-4px) scale(1.02);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+                background: var(--tech-color) !important;
+                color: var(--tech-foreground) !important;
+                transform: translateY(-4px) scale(1.03);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.22);
               }
-              .tech-pill:hover .tech-icon svg { fill: currentColor !important; stroke: currentColor !important; }
-              .tech-pill svg { transition: fill 200ms ease, stroke 200ms ease, transform 200ms ease; }
+              .tech-pill:hover .tech-icon, .tech-pill:hover .tech-label { color: var(--tech-foreground) !important; }
 
               a[aria-label]:hover { transform: translateY(-3px); }
             `}</style>
