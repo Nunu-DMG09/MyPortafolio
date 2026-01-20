@@ -16,22 +16,22 @@ export default function Header() {
 
         <ul className="hidden md:flex items-center flex-1 justify-end gap-4 text-base" style={{ color: "#ffffff" }}>
           <li>
-            <a className="hover:text-[var(--text-100)] reveal" data-delay="150" href="#experience">
+            <a className="hover:text-[var(--text-100)] reveal" data-delay="150" href="#experience" style={{ color: "#ffffff" }}>
               Experiencia
             </a>
           </li>
           <li>
-            <a className="hover:text-[var(--text-100)] reveal" data-delay="200" href="#projects">
+            <a className="hover:text-[var(--text-100)] reveal" data-delay="200" href="#projects" style={{ color: "#ffffff" }}>
               Proyectos
             </a>
           </li>
           <li>
-            <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#about">
+            <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#about" style={{ color: "#ffffff" }}>
               Sobre mí
             </a>
           </li>
           <li className="flex items-center gap-4">
-            <a className="hover:text-[var(--text-100)] reveal" data-delay="400" href="#contact">
+            <a className="hover:text-[var(--text-100)] reveal" data-delay="400" href="#contact" style={{ color: "#ffffff" }}>
               Contacto
             </a>
             <a
@@ -41,7 +41,7 @@ export default function Header() {
               aria-label="GitHub"
               className="text-white hover:opacity-90 ml-3 reveal"
               data-delay="500"
-              style={{ display: "inline-flex", alignItems: "center" }}
+              style={{ display: "inline-flex", alignItems: "center", color: "#ffffff" }}
             >
               <FaGithub size={30} />
             </a>
@@ -53,20 +53,22 @@ export default function Header() {
         <div className="max-w-6xl mx-auto px-6 w-full">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-2">
             <div className="flex-shrink-0 md:w-1/3 flex justify-center md:justify-start md:mr-2 relative">
-              <img
-                src="/david-mesta.webp"
-                alt="Foto de Luis David"
-                className="w-44 h-44 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover border-4 reveal"
-                data-delay="600"
-                style={{ borderColor: "rgba(255,255,255,0.06)" }}
-              />
+              <div style={{ display: "inline-block", borderRadius: "9999px", padding: 6 }}>
+                <img
+                  src="/david-mesta.webp"
+                  alt="Foto de Luis David"
+                  className="w-44 h-44 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover border-4 reveal header-avatar"
+                  data-delay="600"
+                  style={{ borderColor: "#4f46e5" }}
+                />
+              </div>
             </div>
 
             <div className="md:w-2/3 text-center md:text-right">
               <h1
                 className="text-4xl md:text-7xl lg:text-5xl font-extrabold leading-tight reveal"
                 data-delay="700"
-                style={{ color: "var(--text-100)" }}
+                style={{ color: "#22c55e" }}
               >
                 Luis David Mesta Gonzales
               </h1>
@@ -74,7 +76,7 @@ export default function Header() {
               <h3
                 className="mt-4 text-base md:text-lg lg:text-xm max-w-2xl mx-auto md:mx-0 reveal"
                 data-delay="800"
-                style={{ color: "var(--muted-300)" }}
+                style={{ color: "#ffffff" }}
               >
                 Apasionado en escribir código, aplicando arquitecturas y código limpio. Me enfoco en crear
                 soluciones mantenibles y eficientes usando buenas prácticas y colaboración en equipo. Énfasis en rendimiento, accesibilidad y escalabilidad.
@@ -86,7 +88,7 @@ export default function Header() {
                   download
                   className="px-6 py-3 md:px-8 md:py-4 rounded-full text-base font-medium shadow-sm reveal"
                   data-delay="900"
-                  style={{ background: "var(--text-100)", color: "#000" }}
+                  style={{ background: "#4f46e5", color: "#ffffff" }}
                 >
                   Descargar mi CV
                 </a>
@@ -95,8 +97,8 @@ export default function Header() {
                   className="px-6 py-3 md:px-8 md:py-4 rounded-full text-base font-medium reveal"
                   data-delay="1000"
                   style={{
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    color: "var(--text-100)",
+                    border: "1px solid #22c55e",
+                    color: "#22c55e",
                     background: "transparent",
                   }}
                 >
@@ -107,6 +109,18 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .header-avatar {
+          transition: box-shadow 360ms cubic-bezier(.22,.9,.27,1), transform 360ms cubic-bezier(.22,.9,.27,1);
+          box-shadow: 0 10px 30px rgba(79,70,229,0.16), 0 0 18px rgba(79,70,229,0.10);
+          border: 3px solid #4f46e5;
+        }
+        .header-avatar:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 30px 80px rgba(79,70,229,0.22), 0 0 40px rgba(79,70,229,0.16);
+        }
+      `}</style>
     </header>
   );
 }
