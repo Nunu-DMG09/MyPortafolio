@@ -1,0 +1,109 @@
+import React from "react";
+import { FaCoffee, FaDatabase, FaReact, FaNodeJs, FaTools, FaGithub, FaGitAlt, FaLock, FaNetworkWired, FaPaperPlane } from "react-icons/fa";
+import { SiJavascript, SiPython, SiPhp, SiExpress, SiTailwindcss, SiCodeigniter, SiMysql, SiPostgresql, SiVite } from "react-icons/si";
+
+const sections = [
+  {
+    title: "Lenguajes de Programación",
+    items: [
+      { id: "java", label: "Java", icon: FaCoffee, color: "#007396" },
+      { id: "javascript", label: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
+      { id: "python", label: "Python", icon: SiPython, color: "#3776AB" },
+      { id: "php", label: "PHP", icon: SiPhp, color: "#777bb4" },
+      { id: "sql", label: "SQL", icon: FaDatabase, color: "#0f172a" },
+    ],
+  },
+  {
+    title: "Frameworks & Librerías",
+    items: [
+      { id: "react", label: "React", icon: FaReact, color: "#61dafb" },
+      { id: "express", label: "Express.js", icon: SiExpress, color: "#000000" },
+      { id: "node", label: "Node.js", icon: FaNodeJs, color: "#3C873A" },
+      { id: "tailwind", label: "Tailwind CSS", icon: SiTailwindcss, color: "#06b6d4" },
+      { id: "codeigniter", label: "CodeIgniter 4", icon: SiCodeigniter, color: "#ef3b2d" },
+      { id: "knex", label: "Knex.js", icon: FaTools, color: "#4f46e5" },
+    ],
+  },
+  {
+    title: "Bases de Datos",
+    items: [
+      { id: "mysql", label: "MySQL", icon: SiMysql, color: "#4479A1" },
+      { id: "postgres", label: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
+    ],
+  },
+  {
+    title: "Herramientas & Tecnologías",
+    items: [
+      { id: "git", label: "Git / GitHub", icon: FaGithub, color: "#F05032" },
+      { id: "jwt", label: "JWT Authentication", icon: FaLock, color: "#10B981" },
+      { id: "rest", label: "REST APIs", icon: FaNetworkWired, color: "#8B5CF6" },
+      { id: "vite", label: "Vite", icon: SiVite, color: "#646cff" },
+      { id: "axios", label: "Axios", icon: FaPaperPlane, color: "#00A2FF" },
+    ],
+  },
+];
+
+export default function Skills() {
+  return (
+    <section id="skills" className="max-w-4xl mx-auto px-6 py-12 reveal" aria-labelledby="skills-title">
+      <h2 id="skills-title" className="text-2xl font-bold mb-6" style={{ color: "#22c55e" }}>
+        Skills
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {sections.map((sec) => (
+          <div key={sec.title}>
+            <h3 className="text-lg font-semibold mb-3" style={{ color: "#ffffff" }}>{sec.title}</h3>
+            <div className="flex flex-col gap-3">
+              {sec.items.map((it) => {
+                const Icon = it.icon;
+                return (
+                  <div
+                    key={it.id}
+                    className="skill-item flex items-center gap-4 p-3 rounded-lg"
+                    style={{
+                      background: "rgba(255,255,255,0.02)",
+                      border: "1px solid rgba(255,255,255,0.04)",
+                      transition: "transform 220ms cubic-bezier(.22,.9,.27,1), box-shadow 220ms",
+                      cursor: "default",
+                    }}
+                    aria-hidden
+                  >
+                    <div
+                      className="skill-icon w-10 h-10 rounded-full flex items-center justify-center"
+                      style={{
+                        background: "rgba(255,255,255,0.03)",
+                        border: `1px solid rgba(255,255,255,0.03)`,
+                        color: it.color,
+                        transition: "transform 220ms, box-shadow 220ms, background 220ms",
+                        flex: "0 0 40px",
+                      }}
+                    >
+                      <Icon size={20} />
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ color: "#ffffff", fontWeight: 600 }}>{it.label}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <style>{`
+        .skill-item:hover {
+          transform: translateX(6px);
+          box-shadow: 0 14px 40px rgba(2,6,23,0.45);
+          background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.025));
+        }
+        .skill-item:hover .skill-icon {
+          transform: scale(1.06);
+          box-shadow: 0 8px 30px rgba(2,6,23,0.35);
+        }
+      `}</style>
+    </section>
+  );
+}
