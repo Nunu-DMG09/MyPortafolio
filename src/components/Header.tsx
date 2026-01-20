@@ -107,7 +107,7 @@ export default function Header() {
 
               <div className="mt-8 flex items-center justify-center md:justify-end gap-4">
                 <a
-                  href="/cv.pdf"
+                  href="/CV_DAVIDMESTA.pdf"
                   download
                   className="px-6 py-3 md:px-8 md:py-4 rounded-full text-base font-medium shadow-sm reveal"
                   data-delay="900"
@@ -116,8 +116,7 @@ export default function Header() {
                   Descargar mi CV
                 </a>
                 <a
-                  href="#contact"
-                  onClick={(e) => handleNav(e, "#contact")}
+                  href="mailto:davidmesta09@gmail.com"
                   className="px-6 py-3 md:px-8 md:py-4 rounded-full text-base font-medium reveal"
                   data-delay="1000"
                   style={{
