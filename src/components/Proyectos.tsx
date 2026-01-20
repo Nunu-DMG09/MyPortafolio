@@ -23,12 +23,12 @@ import {
 type Project = { id: number; title: string; description?: string; image: string; techs: string[]; repo?: string; demo?: string; type: "hosteado" | "colaborativo" | "personal"; };
 
 const projects: Project[] = [
-  { id: 1, title: "Municipalidad Jose Leonardo Ortiz - Sistemas de denuncias", description: "Sistema de denuncias para atención ciudadana.", image: "/denuncias.png", techs: ["React", "JavaScript", "Tailwind", "PHP", "CodeIgniter"], repo: "#", demo: "#", type: "colaborativo" },
-  { id: 2, title: "Corporación KM GROUP - Página web", description: "Landing corporativa con CMS ligero.", image: "/km-group.png", techs: ["HTML", "CSS", "JavaScript", "PHP", "Astro"], repo: "#", demo: "#", type: "hosteado" },
-  { id: 3, title: "Sergio Mesta Gomez Vidafy - Landing Page", description: "Landing rápida para presentación de servicios.", image: "/vidafysergio.png", techs: ["TypeScript", "React"], repo: "#", demo: "#", type: "hosteado" },
-  { id: 4, title: "Tecnico Joel - Tienda virtual", description: "E-commerce básico para venta de servicios.", image: "/tecnicojoel.png", techs: ["React", "JavaScript", "Express", "MySQL"], repo: "#", demo: "#", type: "hosteado" },
-  { id: 5, title: "NunuMedic", description: "App de citas médicas sencilla.", image: "/nunumedic.png", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "#", demo: "#", type: "personal" },
-  { id: 6, title: "Ecolim SAC", description: "Portal informativo para empresa ambiental.", image: "/nudav-circular1.png", techs: ["AndroidStudio", "Java", "SQLite"], repo: "#", demo: "#", type: "personal" },
+  { id: 1, title: "Municipalidad Jose Leonardo Ortiz - Sistemas de denuncias", description: "Sistema de denuncias para atención ciudadana.", image: "/denuncias.png", techs: ["React", "JavaScript", "Tailwind", "PHP", "CodeIgniter"], repo: "https://github.com/Nunu-DMG09/denuncias", demo: "https://jloenlinea.munijlo.gob.pe/seccion/denuncias", type: "colaborativo" },
+  { id: 2, title: "Corporación KM GROUP - Página web", description: "Landing corporativa con CMS ligero.", image: "/km-group.png", techs: ["HTML", "CSS", "JavaScript", "PHP", "Astro"], repo: "#", demo: "https://corporacionkmperu.com/", type: "hosteado" },
+  { id: 3, title: "Sergio Mesta Gomez Vidafy - Landing Page", description: "Landing rápida para presentación de servicios.", image: "/vidafysergio.png", techs: ["TypeScript", "React"], repo: "#", demo: "https://sergiomestavidafy.infinityfree.me/", type: "hosteado" },
+  { id: 4, title: "Tecnico Joel - Tienda virtual", description: "E-commerce básico para venta de servicios.", image: "/tecnicojoel.png", techs: ["React", "JavaScript", "Express", "MySQL"], repo: "#", demo: "https://tiendatecnicojoel.vercel.app/", type: "hosteado" },
+  { id: 5, title: "NunuMedic", description: "App de citas médicas sencilla.", image: "/nunumedic.png", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "https://github.com/Nunu-DMG09/NunuMedic", demo: "#", type: "personal" },
+  { id: 6, title: "Ecolim SAC", description: "Portal informativo para empresa ambiental.", image: "/nudav-circular1.png", techs: ["AndroidStudio", "Java", "SQLite"], repo: "https://github.com/Nunu-DMG09/EcolimSac", demo: "#", type: "personal" },
 ];
 
 const ICON_SIZE = 18;
@@ -98,9 +98,9 @@ export default function Proyectos() {
     <section id="projects" className="max-w-6xl mx-auto px-6 py-16 reveal" data-delay="120" aria-labelledby="projects-title">
       <h2
         id="projects-title"
-        className="text-4xl md:text-5xl font-bold text-center mb-4 reveal"
+        className="text-3xl md:text-4xl font-extrabold mb-12 text-center reveal"
         data-delay="200"
-        style={{ color: "#22c55e", paddingBottom: 24 }}
+        style={{ color: "#22c55e" }}
       >
         Proyectos
       </h2>
@@ -138,6 +138,8 @@ export default function Proyectos() {
             style={{
               background: "#071029",
               border: "1px solid rgba(255,255,255,0.04)",
+              position: "relative",
+              paddingBottom: 88,
             }}
           >
             <div
@@ -197,34 +199,34 @@ export default function Proyectos() {
                   );
                 })}
               </div>
+            </div>
 
-              <div className="mt-6 flex gap-3 reveal items-center" data-delay={`${560 + p.id * 80}`}>
-                {p.type !== "hosteado" && (
-                  <a
-                    href={p.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Repo"
-                    className="flex items-center justify-center rounded-md"
-                    style={{ width: 44, height: 44, borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)", background: "transparent", color: "#ffffff", transition: "transform 260ms ease" }}
-                  >
-                    <FaGithub size={18} />
-                  </a>
-                )}
+            <div className="card-actions" aria-hidden>
+              {p.type !== "hosteado" && (
+                <a
+                  href={p.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Repo"
+                  className="flex items-center justify-center rounded-md"
+                  style={{ width: 44, height: 44, borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)", background: "transparent", color: "#ffffff", transition: "transform 260ms ease" }}
+                >
+                  <FaGithub size={18} />
+                </a>
+              )}
 
-                {p.type !== "personal" && (
-                  <a
-                    href={p.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Live"
-                    className="flex items-center justify-center rounded-md"
-                    style={{ width: 44, height: 44, borderRadius: 10, background: "#4f46e5", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)", transition: "transform 260ms ease" }}
-                  >
-                    <FaTelegramPlane size={18} />
-                  </a>
-                )}
-              </div>
+              {p.type !== "personal" && (
+                <a
+                  href={p.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Live"
+                  className="flex items-center justify-center rounded-md"
+                  style={{ width: 44, height: 44, borderRadius: 10, background: "#4f46e5", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)", transition: "transform 260ms ease" }}
+                >
+                  <FaTelegramPlane size={18} />
+                </a>
+              )}
             </div>
 
             <style>{`
@@ -239,6 +241,15 @@ export default function Proyectos() {
                 box-shadow: 0 10px 30px rgba(0,0,0,0.22);
               }
               .tech-pill:hover .tech-icon, .tech-pill:hover .tech-label { color: var(--tech-foreground) !important; }
+
+              .card-actions {
+                position: absolute;
+                right: 16px;
+                bottom: 16px;
+                display: flex;
+                gap: 8px;
+                z-index: 10;
+              }
 
               a[aria-label]:hover { transform: translateY(-3px); }
             `}</style>
