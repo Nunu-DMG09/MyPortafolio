@@ -4,8 +4,18 @@ import { FaGithub } from "react-icons/fa";
 export default function Header() {
   const headerRef = useRef<HTMLElement | null>(null);
 
+  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const el = document.getElementById(id.replace("#", ""));
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.location.hash = id;
+    }
+  };
+
   return (
-    <header className="w-full relative" ref={headerRef}>
+    <header className="w-full relative" ref={headerRef} style={{ fontFamily: "Poppins, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial" }}>
       <nav className="max-w-6xl mx-auto px-4 py-1 md:py-2 flex items-center">
         <img
           src="/logo-nudav.webp"
@@ -14,39 +24,44 @@ export default function Header() {
           style={{ display: "block" }}
         />
 
-        <ul className="hidden md:flex items-center flex-1 justify-end gap-4 text-base" style={{ color: "#ffffff" }}>
-          <li>
-            <a className="hover:text-[var(--text-100)] reveal" data-delay="150" href="#experience" style={{ color: "#ffffff" }}>
-              Experiencia
-            </a>
-          </li>
-          <li>
-            <a className="hover:text-[var(--text-100)] reveal" data-delay="200" href="#projects" style={{ color: "#ffffff" }}>
-              Proyectos
-            </a>
-          </li>
-          <li>
-            <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#about" style={{ color: "#ffffff" }}>
-              Sobre mí
-            </a>
-          </li>
-          <li className="flex items-center gap-4">
-            <a className="hover:text-[var(--text-100)] reveal" data-delay="400" href="#contact" style={{ color: "#ffffff" }}>
-              Contacto
-            </a>
+        <div className="hidden md:flex items-center flex-1 justify-end">
+          <ul className="flex items-center gap-8 text-base" style={{ color: "#ffffff" }}>
+            <li>
+              <a className="hover:text-[var(--text-100)] reveal" data-delay="150" href="#experience" onClick={(e) => handleNav(e, "#experience")} style={{ color: "#ffffff" }}>
+                Experiencia
+              </a>
+            </li>
+            <li>
+              <a className="hover:text-[var(--text-100)] reveal" data-delay="200" href="#projects" onClick={(e) => handleNav(e, "#projects")} style={{ color: "#ffffff" }}>
+                Proyectos
+              </a>
+            </li>
+            <li>
+              <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#about" onClick={(e) => handleNav(e, "#about")} style={{ color: "#ffffff" }}>
+                Sobre mí
+              </a>
+            </li>
+            <li>
+              <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#contact" onClick={(e) => handleNav(e, "#contact")} style={{ color: "#ffffff" }}>
+                Contacto
+              </a>
+            </li>
+          </ul>
+
+          <div className="ml-8 flex items-center">
             <a
               href="https://github.com/Nunu-DMG09"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="text-white hover:opacity-90 ml-3 reveal"
+              className="text-white hover:opacity-90 reveal"
               data-delay="500"
-              style={{ display: "inline-flex", alignItems: "center", color: "#ffffff" }}
+              style={{ display: "inline-flex", alignItems: "center", color: "#ffffff", gap: 8 }}
             >
-              <FaGithub size={30} />
+              <FaGithub size={28} />
             </a>
-          </li>
-        </ul>
+          </div>
+        </div>
       </nav>
 
       <div className="w-full min-h-[64vh] flex items-center py-8 md:py-12">
@@ -68,7 +83,7 @@ export default function Header() {
               <h1
                 className="text-4xl md:text-7xl lg:text-5xl font-extrabold leading-tight reveal"
                 data-delay="700"
-                style={{ color: "#22c55e" }}
+                style={{ color: "#22c55e", fontFamily: "Poppins, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial" }}
               >
                 Luis David Mesta Gonzales
               </h1>
@@ -94,6 +109,7 @@ export default function Header() {
                 </a>
                 <a
                   href="#contact"
+                  onClick={(e) => handleNav(e, "#contact")}
                   className="px-6 py-3 md:px-8 md:py-4 rounded-full text-base font-medium reveal"
                   data-delay="1000"
                   style={{

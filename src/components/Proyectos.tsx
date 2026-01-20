@@ -216,7 +216,7 @@ export default function Proyectos() {
                   rel="noopener noreferrer"
                   aria-label="Live"
                   className="flex items-center justify-center rounded-md"
-                  style={{ width: 44, height: 44, borderRadius: 10, background: "#22c55e", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)", transition: "transform 260ms ease" }}
+                  style={{ width: 44, height: 44, borderRadius: 10, background: "#4f46e5", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)", transition: "transform 260ms ease" }}
                 >
                   <FaTelegramPlane size={18} />
                 </a>
