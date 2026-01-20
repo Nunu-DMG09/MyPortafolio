@@ -23,12 +23,12 @@ import {
 type Project = { id: number; title: string; description?: string; image: string; techs: string[]; repo?: string; demo?: string; type: "hosteado" | "colaborativo" | "personal"; };
 
 const projects: Project[] = [
-  { id: 1, title: "Municipalidad Jose Leonardo Ortiz - Sistemas de denuncias", description: "Sistema de denuncias para atención ciudadana.", image: "https://source.unsplash.com/collection/190727/1200x900?sig=1", techs: ["React", "JavaScript", "Tailwind", "PHP", "CodeIgniter"], repo: "#", demo: "#", type: "colaborativo" },
-  { id: 2, title: "Corporación KM GROUP - Página web", description: "Landing corporativa con CMS ligero.", image: "https://source.unsplash.com/collection/190727/1200x900?sig=2", techs: ["HTML", "CSS", "JavaScript", "PHP", "Astro"], repo: "#", demo: "#", type: "hosteado" },
-  { id: 3, title: "Sergio Mesta Gomez Vidafy - Landing Page", description: "Landing rápida para presentación de servicios.", image: "https://source.unsplash.com/collection/190727/1200x900?sig=3", techs: ["TypeScript", "React"], repo: "#", demo: "#", type: "hosteado" },
-  { id: 4, title: "Tecnico Joel - Tienda virtual", description: "E-commerce básico para venta de servicios.", image: "https://source.unsplash.com/collection/190727/1200x900?sig=4", techs: ["React", "JavaScript", "Express", "MySQL"], repo: "#", demo: "#", type: "hosteado" },
-  { id: 5, title: "NunuMedic", description: "App de citas médicas sencilla.", image: "https://source.unsplash.com/collection/190727/1200x900?sig=5", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "#", demo: "#", type: "personal" },
-  { id: 6, title: "Ecolim SAC", description: "Portal informativo para empresa ambiental.", image: "https://source.unsplash.com/collection/190727/1200x900?sig=6", techs: ["AndroidStudio", "Java", "SQLite"], repo: "#", demo: "#", type: "personal" },
+  { id: 1, title: "Municipalidad Jose Leonardo Ortiz - Sistemas de denuncias", description: "Sistema de denuncias para atención ciudadana.", image: "/denuncias.png", techs: ["React", "JavaScript", "Tailwind", "PHP", "CodeIgniter"], repo: "#", demo: "#", type: "colaborativo" },
+  { id: 2, title: "Corporación KM GROUP - Página web", description: "Landing corporativa con CMS ligero.", image: "/km-group.png", techs: ["HTML", "CSS", "JavaScript", "PHP", "Astro"], repo: "#", demo: "#", type: "hosteado" },
+  { id: 3, title: "Sergio Mesta Gomez Vidafy - Landing Page", description: "Landing rápida para presentación de servicios.", image: "/vidafysergio.png", techs: ["TypeScript", "React"], repo: "#", demo: "#", type: "hosteado" },
+  { id: 4, title: "Tecnico Joel - Tienda virtual", description: "E-commerce básico para venta de servicios.", image: "/tecnicojoel.png", techs: ["React", "JavaScript", "Express", "MySQL"], repo: "#", demo: "#", type: "hosteado" },
+  { id: 5, title: "NunuMedic", description: "App de citas médicas sencilla.", image: "/nunumedic.png", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "#", demo: "#", type: "personal" },
+  { id: 6, title: "Ecolim SAC", description: "Portal informativo para empresa ambiental.", image: "/nudav-circular1.png", techs: ["AndroidStudio", "Java", "SQLite"], repo: "#", demo: "#", type: "personal" },
 ];
 
 const ICON_SIZE = 18;
@@ -95,7 +95,7 @@ export default function Proyectos() {
   const visible = projects.filter((p) => p.type === filter);
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 reveal" data-delay="120" aria-labelledby="projects-title">
+    <section id="projects" className="max-w-6xl mx-auto px-6 py-16 reveal" data-delay="120" aria-labelledby="projects-title">
       <h2
         id="projects-title"
         className="text-4xl md:text-5xl font-bold text-center mb-4 reveal"
@@ -199,27 +199,31 @@ export default function Proyectos() {
               </div>
 
               <div className="mt-6 flex gap-3 reveal items-center" data-delay={`${560 + p.id * 80}`}>
-                <a
-                  href={p.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Repo"
-                  className="flex items-center justify-center rounded-md"
-                  style={{ width: 44, height: 44, borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)", background: "transparent", color: "#ffffff", transition: "transform 260ms ease" }}
-                >
-                  <FaGithub size={18} />
-                </a>
+                {p.type !== "hosteado" && (
+                  <a
+                    href={p.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Repo"
+                    className="flex items-center justify-center rounded-md"
+                    style={{ width: 44, height: 44, borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)", background: "transparent", color: "#ffffff", transition: "transform 260ms ease" }}
+                  >
+                    <FaGithub size={18} />
+                  </a>
+                )}
 
-                <a
-                  href={p.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Live"
-                  className="flex items-center justify-center rounded-md"
-                  style={{ width: 44, height: 44, borderRadius: 10, background: "#4f46e5", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)", transition: "transform 260ms ease" }}
-                >
-                  <FaTelegramPlane size={18} />
-                </a>
+                {p.type !== "personal" && (
+                  <a
+                    href={p.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Live"
+                    className="flex items-center justify-center rounded-md"
+                    style={{ width: 44, height: 44, borderRadius: 10, background: "#4f46e5", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)", transition: "transform 260ms ease" }}
+                  >
+                    <FaTelegramPlane size={18} />
+                  </a>
+                )}
               </div>
             </div>
 
