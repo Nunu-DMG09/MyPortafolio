@@ -4,6 +4,8 @@ import Experiencia from "../components/Experiencia.tsx";
 import Proyectos from "../components/Proyectos.tsx";
 import FormContacto from "../components/FormContacto.tsx";
 import RevealObserver from "../components/RevealObserver";
+import AboutMe from "../components/AboutMe";
+import Footer from "../components/Footer";
 import "../styles/global.css";
 ---
 <!doctype html>
@@ -19,7 +21,9 @@ import "../styles/global.css";
     <main>
       <Experiencia />
       <Proyectos client:load />
+      <AboutMe />
       <FormContacto client:load />
+      <Footer />
     </main>
   </body>
 </html>
