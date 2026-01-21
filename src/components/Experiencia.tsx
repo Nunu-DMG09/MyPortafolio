@@ -35,7 +35,7 @@ const Icon = ({ kind }: { kind: "briefcase" | "building" | "calendar" }) => {
 
 export default function Experiencia() {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-20 reveal" data-delay="120" aria-labelledby="experience-title">
+    <section id="experiencia" className="max-w-5xl mx-auto px-6 py-20 reveal" data-delay="120" aria-labelledby="experience-title">
       <h2
         id="experience-title"
         className="text-3xl md:text-4xl font-extrabold mb-12 text-center reveal"
