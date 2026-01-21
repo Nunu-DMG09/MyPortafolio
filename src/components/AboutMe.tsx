@@ -10,7 +10,7 @@ export default function AboutMe() {
   ];
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-20 reveal" data-delay="120" aria-labelledby="about-title">
+    <section id="sobremi" className="max-w-5xl mx-auto px-6 py-20 reveal" data-delay="120" aria-labelledby="about-title">
       <h2
         id="about-title"
         className="text-3xl md:text-4xl font-extrabold text-center mb-12 reveal"
