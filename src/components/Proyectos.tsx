@@ -23,12 +23,12 @@ import {
 type Project = { id: number; title: string; description?: string; image: string; techs: string[]; repo?: string; demo?: string; type: "hosteado" | "colaborativo" | "personal"; };
 
 const projects: Project[] = [
-  { id: 1, title: "Municipalidad Jose Leonardo Ortiz - Sistemas de denuncias", description: "Sistema de denuncias para atención ciudadana.", image: "/denuncias.png", techs: ["React", "JavaScript", "Tailwind", "PHP", "CodeIgniter"], repo: "https://github.com/Nunu-DMG09/denuncias", demo: "https://jloenlinea.munijlo.gob.pe/seccion/denuncias", type: "colaborativo" },
-  { id: 2, title: "Corporación KM GROUP - Página web", description: "Landing corporativa con CMS ligero.", image: "/km-group.png", techs: ["HTML", "CSS", "JavaScript", "PHP", "Astro"], repo: "#", demo: "https://corporacionkmperu.com/", type: "hosteado" },
-  { id: 3, title: "Vidafy Sergio Mesta - Landing Page", description: "Landing rápida para presentación de servicios.", image: "/vidafysergio.png", techs: ["TypeScript", "React"], repo: "#", demo: "https://sergiomestavidafy.infinityfree.me/", type: "hosteado" },
-  { id: 4, title: "Tecnico Joel - Tienda virtual", description: "E-commerce básico para venta de servicios.", image: "/tecnicojoel.png", techs: ["React", "JavaScript", "Express", "MySQL"], repo: "#", demo: "https://tiendatecnicojoel.vercel.app/", type: "hosteado" },
-  { id: 5, title: "NunuMedic - Sistema de ventas e inventario", description: "App de citas médicas sencilla.", image: "/nunumedic.png", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "https://github.com/Nunu-DMG09/NunuMedic", demo: "#", type: "personal" },
-  { id: 6, title: "Ecolim SAC - Aplicactivo de recolección de datos residuales", description: "Portal informativo para empresa ambiental.", image: "/nudav-circular1.png", techs: ["AndroidStudio", "Java", "SQLite"], repo: "https://github.com/Nunu-DMG09/EcolimSac", demo: "#", type: "personal" },
+  { id: 1, title: "Municipalidad Jose Leonardo Ortiz - Sistemas de denuncias", description: "SisRefactorización y unificación de sistemas de denuncias (ambiental, anticorrupción y consumidor) para la Municipalidad de José Leonardo Ortiz, consolidando múltiples procesos en una plataforma integral desarrollada mediante trabajo colaborativo.", image: "/denuncias.png", techs: ["React", "JavaScript", "Tailwind", "PHP", "CodeIgniter"], repo: "https://github.com/Nunu-DMG09/denuncias", demo: "https://jloenlinea.munijlo.gob.pe/seccion/denuncias", type: "colaborativo" },
+  { id: 2, title: "Corporación KM GROUP - Página web", description: "Desarrollo de sitio web corporativo para KM Group, consultora especializada en gestión y normativas ISO, diseñado para presentar sus servicios de auditoría, seguridad y sostenibilidad mediante una interfaz moderna que refuerza su identidad empresarial.", image: "/km-group.png", techs: ["HTML", "CSS", "JavaScript", "PHP", "Astro"], repo: "#", demo: "https://corporacionkmperu.com/", type: "hosteado" },
+  { id: 3, title: "Vidafy Sergio Mesta - Landing Page", description: "Diseño de Landing Page para la promoción de productos de salud y bienestar Vidafy, estructurada para resaltar los beneficios de calidad de vida con una navegación intuitiva orientada a la captación de clientes.", image: "/vidafysergio.png", techs: ["TypeScript", "React"], repo: "#", demo: "https://sergiomestavidafy.infinityfree.me/", type: "hosteado" },
+  { id: 4, title: "Tecnico Joel - Tienda virtual", description: "Desarrollo integral de E-commerce para Técnico Joel, combinando una tienda virtual de productos tecnológicos con un sistema de gestión de inventario personalizado para la administración eficiente de stock y ventas en tiempo real.", image: "/tecnicojoel.png", techs: ["React", "JavaScript", "Express", "MySQL"], repo: "#", demo: "https://tiendatecnicojoel.vercel.app/", type: "hosteado" },
+  { id: 5, title: "NunuMedic - Sistema de ventas e inventario", description: "Desarrollo de NUNUMEDIC, sistema web Fullstack para la gestión integral de farmacias, que automatiza inventarios, ventas y reportes en tiempo real mediante una arquitectura escalable construida con React, Node.js y MySQL.", image: "/nunumedic.png", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "https://github.com/Nunu-DMG09/NunuMedic", demo: "#", type: "personal" },
+  { id: 6, title: "Ecolim SAC - Aplicactivo de recolección de datos residuales", description: "Desarrollo de EcolimSac, aplicación móvil para la gestión eficiente de residuos industriales, diseñada para optimizar la recolección, el cumplimiento normativo y el control operativo mediante reportes automatizados y herramientas técnicas.", image: "/nudav-circular1.png", techs: ["AndroidStudio", "Java", "SQLite"], repo: "https://github.com/Nunu-DMG09/EcolimSac", demo: "#", type: "personal" },
 ];
 
 const ICON_SIZE = 18;
@@ -98,7 +98,7 @@ export default function Proyectos() {
   const toggle = (id: number) => setExpanded((s) => ({ ...s, [id]: !s[id] }));
 
   return (
-    <section id="projects" className="max-w-6xl mx-auto px-6 py-16 reveal" data-delay="120" aria-labelledby="projects-title">
+    <section id="proyectos" className="max-w-6xl mx-auto px-6 py-16 reveal" data-delay="120" aria-labelledby="projects-title">
       <h2
         id="projects-title"
         className="text-3xl md:text-4xl font-extrabold mb-12 text-center reveal"
