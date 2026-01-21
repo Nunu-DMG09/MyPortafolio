@@ -47,7 +47,7 @@ const sections = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="max-w-4xl mx-auto px-6 py-12 reveal" aria-labelledby="skills-title">
+    <section id="habilidades" className="max-w-4xl mx-auto px-6 py-12 reveal" aria-labelledby="skills-title">
       <h2 id="skills-title" className="text-3xl md:text-4xl font-extrabold mb-12 text-center reveal" style={{ color: "#22c55e" }}>
         Habilidades
       </h2>
