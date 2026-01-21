@@ -21,41 +21,45 @@ export default function AboutMe() {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {interests.map((item, idx) => (
-          <article
-            key={idx}
-            className="interest-card p-6 md:p-8 rounded-lg reveal transform transition-all duration-400"
-            data-delay={`${280 + idx * 80}`}
-            style={{
-              background: "#071029",
-              border: "1px solid rgba(255,255,255,0.04)",
-            }}
-          >
-            <div className="flex items-center gap-4 mb-4">
-              <span
-                className="interest-icon inline-flex items-center justify-center rounded-lg"
-                style={{
-                  width: 56,
-                  height: 56,
-                  background: `${item.color}20`,
-                  color: item.color,
-                  transition: "all 320ms cubic-bezier(.22,.9,.27,1)",
-                }}
-                aria-hidden
-              >
-                {item.icon}
-              </span>
+        {interests.map((item, idx) => {
+          const base = 260 + idx * 100;
+          return (
+            <article
+              key={idx}
+              className="interest-card p-6 md:p-8 rounded-lg reveal transform transition-all duration-400"
+              data-delay={`${base}`}
+              style={{
+                background: "#071029",
+                border: "1px solid rgba(255,255,255,0.04)",
+              }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <span
+                  className="interest-icon inline-flex items-center justify-center rounded-lg reveal"
+                  data-delay={`${base + 40}`}
+                  style={{
+                    width: 56,
+                    height: 56,
+                    background: `${item.color}20`,
+                    color: item.color,
+                    transition: "all 320ms cubic-bezier(.22,.9,.27,1)",
+                  }}
+                  aria-hidden
+                >
+                  {item.icon}
+                </span>
 
-              <h3 className="text-xl md:text-2xl font-semibold" style={{ color: "#22c55e" }}>
-                {item.title}
-              </h3>
-            </div>
+                <h3 className="text-xl md:text-2xl font-semibold reveal" data-delay={`${base + 80}`} style={{ color: "#22c55e" }}>
+                  {item.title}
+                </h3>
+              </div>
 
-            <p className="text-sm md:text-base" style={{ color: "#ffffff", lineHeight: 1.6 }}>
-              {item.desc}
-            </p>
-          </article>
-        ))}
+              <p className="text-sm md:text-base reveal" data-delay={`${base + 120}`} style={{ color: "#ffffff", lineHeight: 1.6 }}>
+                {item.desc}
+              </p>
+            </article>
+          );
+        })}
       </div>
 
       <style>{`
