@@ -94,17 +94,17 @@ export default function FormContacto() {
           <textarea value={message} onChange={(e) => setMessage(e.target.value)} disabled={status === "sending"} className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] focus:outline-none min-h-[160px]" placeholder="Escribe tu mensaje..." required />
         </label>
 
-        <div aria-live="polite" tabIndex={-1} ref={liveRef}>
-          {status === "success" && <p className="text-sm reveal" data-delay="520" style={{ color: "#22c55e" }}>Mensaje enviado correctamente, Muchas gracias por comunicarte con Nudav Studio.</p>}
-          {status === "error" && errorMsg && <p className="text-sm reveal" data-delay="480" style={{ color: "#ffb4b4" }}>{errorMsg}</p>}
+        <div aria-live="polite" tabIndex={-1} ref={liveRef} className="reveal" data-delay="520">
+          {status === "success" && <p className="text-sm" style={{ color: "#22c55e" }}>Mensaje enviado correctamente, Muchas gracias por comunicarte con Nudav Studio.</p>}
+          {status === "error" && errorMsg && <p className="text-sm" style={{ color: "#ffb4b4" }}>{errorMsg}</p>}
         </div>
 
-        <div className="flex gap-3 reveal" data-delay="560">
-          <button type="submit" disabled={status === "sending"} className="px-6 py-3 rounded-full font-medium" style={{ background: "linear-gradient(90deg,#22c55e,#16a34a)", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)" }}>
+        <div className="flex gap-3">
+          <button type="submit" disabled={status === "sending"} className="px-6 py-3 rounded-full font-medium reveal" data-delay="580" style={{ background: "linear-gradient(90deg,#22c55e,#16a34a)", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)" }}>
             {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
           </button>
 
-          <button type="button" onClick={() => { setName(""); setEmail(""); setSubject(""); setMessage(""); setStatus("idle"); setErrorMsg(""); }} className="px-6 py-3 rounded-full font-medium" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#ffffff", background: "transparent" }}>
+          <button type="button" onClick={() => { setName(""); setEmail(""); setSubject(""); setMessage(""); setStatus("idle"); setErrorMsg(""); }} className="px-6 py-3 rounded-full font-medium reveal" data-delay="620" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#ffffff", background: "transparent" }}>
             Limpiar
           </button>
         </div>
