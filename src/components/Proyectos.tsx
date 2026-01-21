@@ -25,10 +25,10 @@ type Project = { id: number; title: string; description?: string; image: string;
 const projects: Project[] = [
   { id: 1, title: "Municipalidad Jose Leonardo Ortiz - Sistemas de denuncias", description: "Sistema de denuncias para atención ciudadana.", image: "/denuncias.png", techs: ["React", "JavaScript", "Tailwind", "PHP", "CodeIgniter"], repo: "https://github.com/Nunu-DMG09/denuncias", demo: "https://jloenlinea.munijlo.gob.pe/seccion/denuncias", type: "colaborativo" },
   { id: 2, title: "Corporación KM GROUP - Página web", description: "Landing corporativa con CMS ligero.", image: "/km-group.png", techs: ["HTML", "CSS", "JavaScript", "PHP", "Astro"], repo: "#", demo: "https://corporacionkmperu.com/", type: "hosteado" },
-  { id: 3, title: "Sergio Mesta Gomez Vidafy - Landing Page", description: "Landing rápida para presentación de servicios.", image: "/vidafysergio.png", techs: ["TypeScript", "React"], repo: "#", demo: "https://sergiomestavidafy.infinityfree.me/", type: "hosteado" },
+  { id: 3, title: "Vidafy Sergio Mesta - Landing Page", description: "Landing rápida para presentación de servicios.", image: "/vidafysergio.png", techs: ["TypeScript", "React"], repo: "#", demo: "https://sergiomestavidafy.infinityfree.me/", type: "hosteado" },
   { id: 4, title: "Tecnico Joel - Tienda virtual", description: "E-commerce básico para venta de servicios.", image: "/tecnicojoel.png", techs: ["React", "JavaScript", "Express", "MySQL"], repo: "#", demo: "https://tiendatecnicojoel.vercel.app/", type: "hosteado" },
-  { id: 5, title: "NunuMedic", description: "App de citas médicas sencilla.", image: "/nunumedic.png", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "https://github.com/Nunu-DMG09/NunuMedic", demo: "#", type: "personal" },
-  { id: 6, title: "Ecolim SAC", description: "Portal informativo para empresa ambiental.", image: "/nudav-circular1.png", techs: ["AndroidStudio", "Java", "SQLite"], repo: "https://github.com/Nunu-DMG09/EcolimSac", demo: "#", type: "personal" },
+  { id: 5, title: "NunuMedic - Sistema de ventas e inventario", description: "App de citas médicas sencilla.", image: "/nunumedic.png", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "https://github.com/Nunu-DMG09/NunuMedic", demo: "#", type: "personal" },
+  { id: 6, title: "Ecolim SAC - Aplicactivo de recolección de datos residuales", description: "Portal informativo para empresa ambiental.", image: "/nudav-circular1.png", techs: ["AndroidStudio", "Java", "SQLite"], repo: "https://github.com/Nunu-DMG09/EcolimSac", demo: "#", type: "personal" },
 ];
 
 const ICON_SIZE = 18;
@@ -92,7 +92,10 @@ const isLight = (hex = "#000000") => {
 
 export default function Proyectos() {
   const [filter, setFilter] = useState<"hosteado" | "colaborativo" | "personal">("hosteado");
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
   const visible = projects.filter((p) => p.type === filter);
+
+  const toggle = (id: number) => setExpanded((s) => ({ ...s, [id]: !s[id] }));
 
   return (
     <section id="projects" className="max-w-6xl mx-auto px-6 py-16 reveal" data-delay="120" aria-labelledby="projects-title">
@@ -130,131 +133,164 @@ export default function Proyectos() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {visible.map((p) => (
-          <article
-            key={p.id}
-            className="rounded-lg overflow-hidden reveal transform transition-all duration-500"
-            data-delay={`${320 + p.id * 80}`}
-            style={{
-              background: "#071029",
-              border: "1px solid rgba(255,255,255,0.04)",
-              position: "relative",
-              paddingBottom: 88,
-            }}
-          >
-            <div
-              className="w-full h-80 sm:h-88 md:h-72 lg:h-80 reveal"
-              data-delay={`${380 + p.id * 80}`}
+        {visible.map((p) => {
+          const [left, right] = p.title.split(" - ", 2);
+          const desc = p.description ?? "";
+          const isLong = desc.length > 120;
+          const isExpanded = !!expanded[p.id];
+          return (
+            <article
+              key={p.id}
+              className="rounded-lg overflow-hidden reveal transform transition-all duration-500"
+              data-delay={`${320 + p.id * 80}`}
               style={{
-                overflow: "hidden",
+                background: "#071029",
+                border: "1px solid rgba(255,255,255,0.04)",
                 position: "relative",
-                transition: "transform 600ms cubic-bezier(.22,.9,.27,1)",
+                paddingBottom: 88,
               }}
             >
-              <img
-                src={p.image}
-                alt={p.title}
-                className="w-full h-full object-cover transition-transform duration-700"
-                style={{ transformOrigin: "center", willChange: "transform", filter: "brightness(0.95)" }}
-              />
               <div
-                aria-hidden
-                className="absolute inset-0 transition-opacity duration-700"
+                className="w-full h-80 sm:h-88 md:h-72 lg:h-80 reveal"
+                data-delay={`${380 + p.id * 80}`}
                 style={{
-                  background: "linear-gradient(180deg, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.45) 100%)",
+                  overflow: "hidden",
+                  position: "relative",
+                  transition: "transform 600ms cubic-bezier(.22,.9,.27,1)",
                 }}
-              />
-            </div>
-
-            <div className="p-6">
-              <h3 className="text-xl md:text-2xl font-semibold reveal" data-delay={`${440 + p.id * 80}`} style={{ color: "#22c55e" }}>
-                {p.title}
-              </h3>
-              {p.description && <p className="mt-2 text-sm reveal" data-delay={`${480 + p.id * 80}`} style={{ color: "#ffffff" }}>{p.description}</p>}
-
-              <div className="mt-4 flex flex-wrap gap-3 reveal" data-delay={`${520 + p.id * 80}`}>
-                {p.techs.map((t) => {
-                  const bg = colorMap[t] ?? "#6b7280";
-                  const fg = isLight(bg) ? "#000" : "#fff";
-                  return (
-                    <span
-                      key={t}
-                      className="tech-pill flex items-center gap-3 text-sm px-3 py-2 rounded-full"
-                      style={
-                        {
-                          background: "rgba(255,255,255,0.03)",
-                          transition: "all 280ms cubic-bezier(.22,.9,.27,1)",
-                          color: "#9ca3af",
-                          ['--tech-color' as any]: bg,
-                          ['--tech-foreground' as any]: fg,
-                        } as React.CSSProperties
-                      }
-                      aria-hidden
-                    >
-                      <span className="tech-icon" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
-                        <TechIcon tech={t} />
-                      </span>
-                      <span className="tech-label">{t}</span>
-                    </span>
-                  );
-                })}
+              >
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-full object-cover transition-transform duration-700"
+                  style={{ transformOrigin: "center", willChange: "transform", filter: "brightness(0.95)" }}
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 transition-opacity duration-700"
+                  style={{
+                    background: "linear-gradient(180deg, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.45) 100%)",
+                  }}
+                />
               </div>
-            </div>
 
-            <div className="card-actions" aria-hidden>
-              {p.type !== "hosteado" && (
-                <a
-                  href={p.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Repo"
-                  className="flex items-center justify-center rounded-md"
-                  style={{ width: 44, height: 44, borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)", background: "transparent", color: "#ffffff", transition: "transform 260ms ease" }}
+              <div className="p-6">
+                <h3
+                  className="text-xl md:text-2xl font-semibold reveal"
+                  data-delay={`${440 + p.id * 80}`}
+                  style={{ color: "#22c55e", lineHeight: 1.05 }}
                 >
-                  <FaGithub size={18} />
-                </a>
-              )}
+                  <span style={{ display: "block", paddingBottom: 6, fontSize: "1.5rem", lineHeight: 1.06 }}>
+                    {left}
+                  </span>
+                  {right && (
+                    <span className="block" style={{ marginTop: 6, fontSize: "1.2rem", lineHeight: 1.02 }}>
+                      {right}
+                    </span>
+                  )}
+                </h3>
 
-              {p.type !== "personal" && (
-                <a
-                  href={p.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Live"
-                  className="flex items-center justify-center rounded-md"
-                  style={{ width: 44, height: 44, borderRadius: 10, background: "#4f46e5", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)", transition: "transform 260ms ease" }}
-                >
-                  <FaTelegramPlane size={18} />
-                </a>
-              )}
-            </div>
+                {p.description && (
+                  <>
+                    <p className="mt-2 text-sm reveal" data-delay={`${480 + p.id * 80}`} style={{ color: "#ffffff" }}>
+                      {isLong && !isExpanded ? `${desc.slice(0, 120)}...` : desc}
+                    </p>
+                    {isLong && (
+                      <button
+                        onClick={() => toggle(p.id)}
+                        className="mt-2 text-sm rounded-full px-3 py-1 reveal"
+                        style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.06)", color: "#22c55e" }}
+                      >
+                        {isExpanded ? "Leer menos" : "Leer más"}
+                      </button>
+                    )}
+                  </>
+                )}
 
-            <style>{`
-              article:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 30px 60px rgba(2,6,23,0.45); }
-              article:hover img { transform: scale(1.06); transition: transform 700ms cubic-bezier(.22,.9,.27,1); }
+                <div className="mt-4 flex flex-wrap gap-3 reveal" data-delay={`${520 + p.id * 80}`}>
+                  {p.techs.map((t) => {
+                    const bg = colorMap[t] ?? "#6b7280";
+                    const fg = isLight(bg) ? "#000" : "#fff";
+                    return (
+                      <span
+                        key={t}
+                        className="tech-pill flex items-center gap-3 text-sm px-3 py-2 rounded-full"
+                        style={
+                          {
+                            background: "rgba(255,255,255,0.03)",
+                            transition: "all 280ms cubic-bezier(.22,.9,.27,1)",
+                            color: "#9ca3af",
+                            ['--tech-color' as any]: bg,
+                            ['--tech-foreground' as any]: fg,
+                          } as React.CSSProperties
+                        }
+                        aria-hidden
+                      >
+                        <span className="tech-icon" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                          <TechIcon tech={t} />
+                        </span>
+                        <span className="tech-label">{t}</span>
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
 
-              .tech-pill { cursor: default; }
-              .tech-pill:hover {
-                background: var(--tech-color) !important;
-                color: var(--tech-foreground) !important;
-                transform: translateY(-4px) scale(1.03);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-              }
-              .tech-pill:hover .tech-icon, .tech-pill:hover .tech-label { color: var(--tech-foreground) !important; }
+              <div className="card-actions" aria-hidden>
+                {p.type !== "hosteado" && (
+                  <a
+                    href={p.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Repo"
+                    className="flex items-center justify-center rounded-md"
+                    style={{ width: 44, height: 44, borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)", background: "transparent", color: "#ffffff", transition: "transform 260ms ease" }}
+                  >
+                    <FaGithub size={18} />
+                  </a>
+                )}
 
-              .card-actions {
-                position: absolute;
-                right: 16px;
-                bottom: 16px;
-                display: flex;
-                gap: 8px;
-                z-index: 10;
-              }
+                {p.type !== "personal" && (
+                  <a
+                    href={p.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Live"
+                    className="flex items-center justify-center rounded-md"
+                    style={{ width: 44, height: 44, borderRadius: 10, background: "#4f46e5", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)", transition: "transform 260ms ease" }}
+                  >
+                    <FaTelegramPlane size={18} />
+                  </a>
+                )}
+              </div>
 
-              a[aria-label]:hover { transform: translateY(-3px); }
-            `}</style>
-          </article>
-        ))}
+              <style>{`
+                article:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 30px 60px rgba(2,6,23,0.45); }
+                article:hover img { transform: scale(1.06); transition: transform 700ms cubic-bezier(.22,.9,.27,1); }
+
+                .tech-pill { cursor: default; }
+                .tech-pill:hover {
+                  background: var(--tech-color) !important;
+                  color: var(--tech-foreground) !important;
+                  transform: translateY(-4px) scale(1.03);
+                  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+                }
+                .tech-pill:hover .tech-icon, .tech-pill:hover .tech-label { color: var(--tech-foreground) !important; }
+
+                .card-actions {
+                  position: absolute;
+                  right: 16px;
+                  bottom: 16px;
+                  display: flex;
+                  gap: 8px;
+                  z-index: 10;
+                }
+
+                a[aria-label]:hover { transform: translateY(-3px); }
+              `}</style>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
