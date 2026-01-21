@@ -139,14 +139,61 @@ export default function Header() {
       </div>
 
       <style>{`
+        /* Avatar: settle + subtle pulsing glow when revealed */
         .header-avatar {
-          transition: box-shadow 360ms cubic-bezier(.22,.9,.27,1), transform 360ms cubic-bezier(.22,.9,.27,1);
-          box-shadow: 0 10px 30px rgba(79,70,229,0.16), 0 0 18px rgba(79,70,229,0.10);
-          border: 3px solid #4f46e5;
+          transition: transform 420ms cubic-bezier(.22,.9,.27,1), box-shadow 420ms cubic-bezier(.22,.9,.27,1);
+          transform-origin: center;
+          box-shadow: 0 8px 30px rgba(79,70,229,0.12), 0 0 12px rgba(79,70,229,0.06);
+          will-change: transform, box-shadow;
+        }
+        .header-avatar.reveal.in-view {
+          transform: translateY(0) scale(1);
+          box-shadow: 0 30px 80px rgba(79,70,229,0.22), 0 0 40px rgba(79,70,229,0.14);
         }
         .header-avatar:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 30px 80px rgba(79,70,229,0.22), 0 0 40px rgba(79,70,229,0.16);
+          transform: translateY(-6px) scale(1.03);
+          box-shadow: 0 36px 90px rgba(79,70,229,0.26), 0 0 48px rgba(79,70,229,0.16);
+        }
+
+        /* Name/title: gentle float + glow on reveal */
+        h1.reveal {
+          transform-origin: center;
+          transition: transform 520ms cubic-bezier(.22,.9,.27,1), text-shadow 520ms;
+          backface-visibility: hidden;
+        }
+        h1.reveal.in-view {
+          transform: translateY(0) scale(1.02);
+          text-shadow: 0 6px 24px rgba(34,197,94,0.06);
+        }
+
+        /* Role & bio: staggered elevation */
+        p.reveal, h3.reveal {
+          transition: transform 520ms cubic-bezier(.22,.9,.27,1), opacity 520ms;
+        }
+        p.reveal.in-view { transform: translateY(0); opacity: 1; }
+        h3.reveal.in-view { transform: translateY(0); opacity: 1; }
+
+        /* Nav links: subtle float + focus/hover underline */
+        nav ul li a.reveal {
+          display: inline-block;
+          transform-origin: center;
+          transition: transform 360ms cubic-bezier(.22,.9,.27,1), color 220ms;
+        }
+        nav ul li a.reveal.in-view { transform: translateY(0); }
+        nav ul li a.reveal:hover { transform: translateY(-4px); color: var(--text-100); }
+
+        /* CTA buttons: pop on reveal and micro-lift on hover */
+        .mt-8 a.reveal {
+          transition: transform 360ms cubic-bezier(.22,.9,.27,1), box-shadow 360ms;
+          transform-origin: center;
+        }
+        .mt-8 a.reveal.in-view { transform: translateY(0) scale(1); box-shadow: 0 12px 36px rgba(79,70,229,0.06); }
+        .mt-8 a.reveal:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 46px rgba(79,70,229,0.12); }
+
+        /* Small accessibility/fallback: ensure revealed elements are fully visible */
+        .reveal.in-view {
+          opacity: 1 !important;
+          transform: translateY(0) scale(1) !important;
         }
       `}</style>
     </header>
