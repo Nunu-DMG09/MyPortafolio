@@ -53,49 +53,55 @@ export default function Skills() {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {sections.map((sec) => (
-          <div key={sec.title} className="flex flex-col items-center">
-            <div className="flex items-center justify-center gap-3 mb-3">
-              <h3 className="text-lg font-semibold text-center" style={{ color: "#ffffff", padding: "6px 8px" }}>{sec.title}</h3>
-            </div>
+        {sections.map((sec, sidx) => {
+          const sectionDelay = 220 + sidx * 120;
+          return (
+            <div key={sec.title} className="flex flex-col items-center reveal" data-delay={`${sectionDelay}`}>
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <h3 className="text-lg font-semibold text-center" style={{ color: "#ffffff", padding: "6px 8px" }}>{sec.title}</h3>
+              </div>
 
-            <div className="flex flex-col gap-3 items-center w-full">
-              {sec.items.map((it) => {
-                const Icon = it.icon;
-                return (
-                  <div
-                    key={it.id}
-                    className="skill-item flex items-center gap-4 p-3 rounded-lg w-full max-w-sm"
-                    style={{
-                      background: "rgba(255,255,255,0.02)",
-                      border: "1px solid rgba(255,255,255,0.04)",
-                      transition: "transform 220ms cubic-bezier(.22,.9,.27,1), box-shadow 220ms",
-                      cursor: "default",
-                    }}
-                    aria-hidden
-                  >
+              <div className="flex flex-col gap-3 items-center w-full">
+                {sec.items.map((it, idx) => {
+                  const Icon = it.icon;
+                  const itemDelay = sectionDelay + 80 + idx * 60;
+                  return (
                     <div
-                      className="skill-icon w-10 h-10 rounded-full flex items-center justify-center"
+                      key={it.id}
+                      className="skill-item flex items-center gap-4 p-3 rounded-lg w-full max-w-sm reveal"
+                      data-delay={`${itemDelay}`}
                       style={{
-                        background: "rgba(255,255,255,0.03)",
-                        border: `1px solid rgba(255,255,255,0.03)`,
-                        color: it.color,
-                        transition: "transform 220ms, box-shadow 220ms, background 220ms",
-                        flex: "0 0 40px",
+                        background: "rgba(255,255,255,0.02)",
+                        border: "1px solid rgba(255,255,255,0.04)",
+                        transition: "transform 220ms cubic-bezier(.22,.9,.27,1), box-shadow 220ms",
+                        cursor: "default",
                       }}
+                      aria-hidden
                     >
-                      <Icon size={20} />
-                    </div>
+                      <div
+                        className="skill-icon w-10 h-10 rounded-full flex items-center justify-center reveal"
+                        data-delay={`${itemDelay + 40}`}
+                        style={{
+                          background: "rgba(255,255,255,0.03)",
+                          border: `1px solid rgba(255,255,255,0.03)`,
+                          color: it.color,
+                          transition: "transform 220ms, box-shadow 220ms, background 220ms",
+                          flex: "0 0 40px",
+                        }}
+                      >
+                        <Icon size={20} />
+                      </div>
 
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                      <span style={{ color: "#ffffff", fontWeight: 600 }}>{it.label}</span>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                        <span style={{ color: "#ffffff", fontWeight: 600 }}>{it.label}</span>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <style>{`
