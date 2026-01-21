@@ -66,7 +66,7 @@ export default function FormContacto() {
   };
 
   return (
-    <section id="contact" className="max-w-3xl mx-auto px-6 py-12 reveal" data-delay="140" aria-labelledby="contact-title">
+    <section id="contacto" className="max-w-3xl mx-auto px-6 py-12 reveal" data-delay="140" aria-labelledby="contact-title">
       <h2 id="contact-title" className="text-3xl md:text-4xl font-extrabold mb-12 text-center reveal" data-delay="200" style={{ color: "#22c55e" }}>
         Contáctame
       </h2>
