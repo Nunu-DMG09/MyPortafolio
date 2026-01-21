@@ -27,22 +27,27 @@ export default function Header() {
         <div className="hidden md:flex items-center flex-1 justify-end">
           <ul className="flex items-center gap-8 text-base" style={{ color: "#ffffff" }}>
             <li>
-              <a className="hover:text-[var(--text-100)] reveal" data-delay="150" href="#experience" onClick={(e) => handleNav(e, "#experience")} style={{ color: "#ffffff" }}>
+              <a className="hover:text-[var(--text-100)] reveal" data-delay="150" href="#experiencia" onClick={(e) => handleNav(e, "#experience")} style={{ color: "#ffffff" }}>
                 Experiencia
               </a>
             </li>
             <li>
-              <a className="hover:text-[var(--text-100)] reveal" data-delay="200" href="#projects" onClick={(e) => handleNav(e, "#projects")} style={{ color: "#ffffff" }}>
+              <a className="hover:text-[var(--text-100)] reveal" data-delay="200" href="#proyectos" onClick={(e) => handleNav(e, "#projects")} style={{ color: "#ffffff" }}>
                 Proyectos
               </a>
             </li>
             <li>
-              <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#about" onClick={(e) => handleNav(e, "#about")} style={{ color: "#ffffff" }}>
+              <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#habilidades" onClick={(e) => handleNav(e, "#about")} style={{ color: "#ffffff" }}>
+                Habilidades
+              </a>
+            </li>
+            <li>
+              <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#sobremi" onClick={(e) => handleNav(e, "#about")} style={{ color: "#ffffff" }}>
                 Sobre mí
               </a>
             </li>
             <li>
-              <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#contact" onClick={(e) => handleNav(e, "#contact")} style={{ color: "#ffffff" }}>
+              <a className="hover:text-[var(--text-100)] reveal" data-delay="300" href="#contacto" onClick={(e) => handleNav(e, "#contact")} style={{ color: "#ffffff" }}>
                 Contacto
               </a>
             </li>
@@ -89,7 +94,7 @@ export default function Header() {
               </h1>
 
               <p
-                className="mt-0 text-lg md:text-xl max-w-2xl mx-auto md:mx-0 reveal"
+                className="mt-0 text-lg md:text-xl reveal"
                 data-delay="720"
                 style={{ color: "#ffffff", opacity: 0.95 }}
               >
@@ -97,7 +102,7 @@ export default function Header() {
               </p>
 
               <h3
-                className="mt-4 text-base md:text-lg lg:text-xm max-w-2xl mx-auto md:mx-0 reveal"
+                className="mt-4 text-base md:text-lg lg:text-xm reveal"
                 data-delay="800"
                 style={{ color: "#ffffff" }}
               >
