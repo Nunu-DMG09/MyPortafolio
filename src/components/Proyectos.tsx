@@ -46,7 +46,7 @@ const colorMap: Record<string, string> = {
   MySQL: "#4479A1",
   CodeIgniter: "#ef3b2d",
   AndroidStudio: "#3DDC84",
-  Java: "#007396",
+  Java: "#e51f24", // CAMBIO: Color rojo para Java
   SQLite: "#003B57",
   Prisma: "#0ea5a4",
   Postgres: "#336791",
@@ -108,7 +108,8 @@ export default function Proyectos() {
         Proyectos
       </h2>
 
-      <div className="flex justify-center gap-3 mb-8 reveal" data-delay="260">
+      {/* CAMBIO: flex-wrap para responsividad en móviles */}
+      <div className="flex justify-center gap-3 mb-8 reveal flex-wrap" data-delay="260">
         <button
           onClick={() => setFilter("hosteado")}
           className={`px-5 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${filter === "hosteado" ? "shadow-md" : "opacity-90"}`}
@@ -198,8 +199,8 @@ export default function Proyectos() {
                     {isLong && (
                       <button
                         onClick={() => toggle(p.id)}
-                        className="mt-2 text-sm rounded-full px-3 py-1 reveal"
-                        style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.06)", color: "#22c55e" }}
+                        className="read-more-btn mt-2 text-sm rounded-full px-3 py-1 reveal" /* CAMBIO: clase read-more-btn añadida */
+                        style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#22c55e", background: "transparent" }}
                       >
                         {isExpanded ? "Leer menos" : "Leer más"}
                       </button>
@@ -267,6 +268,14 @@ export default function Proyectos() {
               <style>{`
                 article:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 30px 60px rgba(2,6,23,0.45); }
                 article:hover img { transform: scale(1.06); transition: transform 700ms cubic-bezier(.22,.9,.27,1); }
+
+                /* CAMBIO: Estilos hover para el botón Leer más */
+                .read-more-btn { transition: all 0.3s ease; }
+                .read-more-btn:hover {
+                  background: rgba(34, 197, 94, 0.1) !important;
+                  border-color: #22c55e !important;
+                  transform: translateX(4px);
+                }
 
                 .tech-pill { cursor: default; }
                 .tech-pill:hover {
