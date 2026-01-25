@@ -173,14 +173,33 @@ export default function Header() {
         p.reveal.in-view { transform: translateY(0); opacity: 1; }
         h3.reveal.in-view { transform: translateY(0); opacity: 1; }
 
-        /* Nav links: subtle float + focus/hover underline */
+        /* Nav links: Hover effect with underline and color change */
         nav ul li a.reveal {
+          position: relative;
           display: inline-block;
           transform-origin: center;
           transition: transform 360ms cubic-bezier(.22,.9,.27,1), color 220ms;
         }
+        /* Pseudo-element para el subrayado */
+        nav ul li a.reveal::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -4px;
+          left: 0;
+          background-color: #22c55e; /* Verde */
+          transition: width 0.3s ease;
+        }
         nav ul li a.reveal.in-view { transform: translateY(0); }
-        nav ul li a.reveal:hover { transform: translateY(-4px); color: var(--text-100); }
+        
+        nav ul li a.reveal:hover { 
+          transform: translateY(-2px); 
+          color: #22c55e !important; /* Cambia texto a verde */
+        }
+        nav ul li a.reveal:hover::after {
+          width: 100%; /* Expande el subrayado */
+        }
 
         /* CTA buttons: pop on reveal and micro-lift on hover */
         .mt-8 a.reveal {
