@@ -6,11 +6,11 @@ const sections = [
   {
     title: "Lenguajes de Programación",
     items: [
-      { id: "java", label: "Java", icon: FaCoffee, color: "#007396" },
+      { id: "java", label: "Java", icon: FaCoffee, color: "#e51f24" }, // CAMBIO: Rojo
       { id: "javascript", label: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
       { id: "python", label: "Python", icon: SiPython, color: "#3776AB" },
       { id: "php", label: "PHP", icon: SiPhp, color: "#777bb4" },
-      { id: "sql", label: "SQL", icon: FaDatabase, color: "#0f172a" },
+      { id: "sql", label: "SQL", icon: FaDatabase, color: "#38bdf8" }, // CAMBIO: Azul brillante notorio
     ],
   },
   {
