@@ -26,7 +26,7 @@ export default function BackToTop() {
       >
         <span className="b-ring" aria-hidden />
         <span className="b-inner" aria-hidden>
-          <FaArrowUp size={20}/>
+          <FaArrowUp size={20} />
         </span>
       </button>
 
@@ -41,15 +41,16 @@ export default function BackToTop() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-          border: 1px solid rgba(255,255,255,0.06);
+          /* Fondo oscuro sólido y borde verde para ser muy notorio */
+          background: #0f172a; 
+          border: 2px solid #22c55e;
           color: #ffffff;
           cursor: pointer;
           z-index: 60;
           opacity: 0;
           transform: translateY(14px) scale(0.96);
-          transition: opacity 360ms cubic-bezier(.22,.9,.27,1), transform 360ms;
-          box-shadow: 0 8px 24px rgba(2,6,23,0.45);
+          transition: opacity 360ms cubic-bezier(.22,.9,.27,1), transform 360ms, box-shadow 360ms, background 360ms;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
         .back-to-top.show {
           opacity: 1;
@@ -60,8 +61,8 @@ export default function BackToTop() {
           width: 100%;
           height: 100%;
           border-radius: 9999px;
-          box-shadow: 0 0 0 4px rgba(79,70,229,0.08);
-          animation: pulse 1800ms infinite;
+          box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3); /* Anillo verde */
+          animation: pulse 2000ms infinite;
           pointer-events: none;
         }
         .b-inner {
@@ -71,13 +72,22 @@ export default function BackToTop() {
           justify-content:center;
           gap: 8px;
         }
-        .b-inner svg:first-child { color: #ffffff; }
-        .b-inner svg:last-child { color: #22c55e; }
-        .back-to-top:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 20px 50px rgba(2,6,23,0.5); }
+        .b-inner svg:first-child { color: #ffffff; transition: color 0.3s;}
+        .b-inner svg:last-child { color: #22c55e; transition: color 0.3s;}
+        
+        .back-to-top:hover { 
+          transform: translateY(-6px) scale(1.05); 
+          box-shadow: 0 0 20px rgba(34, 197, 94, 0.6); /* Glow verde intenso */
+          background: #1e293b;
+        }
+        /* Cambio de colores en hover para feedback extra */
+        .back-to-top:hover .b-inner svg:first-child { color: #22c55e; }
+        .back-to-top:hover .b-inner svg:last-child { color: #ffffff; }
+
         @keyframes pulse {
-          0% { box-shadow: 0 0 0 0 rgba(79,70,229,0.08); }
-          70% { box-shadow: 0 0 0 14px rgba(79,70,229,0.00); }
-          100% { box-shadow: 0 0 0 0 rgba(79,70,229,0.00); }
+          0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+          70% { box-shadow: 0 0 0 14px rgba(34, 197, 94, 0.0); }
+          100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.0); }
         }
 
         /* reduced motion */
