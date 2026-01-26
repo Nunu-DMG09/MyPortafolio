@@ -35,8 +35,8 @@ export default function BackToTop() {
           position: fixed;
           right: 28px;
           bottom: 28px;
-          width: 64px;
-          height: 64px;
+          width: 48px;  
+          height: 48px; 
           border-radius: 9999px;
           display: inline-flex;
           align-items: center;
