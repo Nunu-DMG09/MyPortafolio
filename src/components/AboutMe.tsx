@@ -1,12 +1,32 @@
 import React from "react";
-import { FaGamepad, FaDog, FaMotorcycle, FaCode } from "react-icons/fa";
+import { FaCode, FaLaptopCode, FaDatabase, FaLightbulb } from "react-icons/fa";
 
 export default function AboutMe() {
   const interests = [
-    { icon: <FaCode size={24} />, title: "Aprendizaje Continuo", desc: "Apasionado por explorar y dominar nuevas tecnologías.", color: "#22c55e" },
-    { icon: <FaGamepad size={24} />, title: "Videojuegos", desc: "Fanático de Left 4 Dead y otros títulos cooperativos.", color: "#4f46e5" },
-    { icon: <FaDog size={24} />, title: "Mascotas", desc: "Disfruto pasar tiempo con mis compañeros peludos.", color: "#F97316" },
-    { icon: <FaMotorcycle size={24} />, title: "Moto", desc: "Salir a tomar aire libre en mi moto es mi escape perfecto.", color: "#06b6d4" },
+    { 
+      icon: <FaCode size={24} />, 
+      title: "Ingeniería de Software", 
+      desc: "Escribo código limpio y mantenible aplicando buenas prácticas y arquitecturas de software sólidas para garantizar sistemas escalables.", 
+      color: "#22c55e" 
+    },
+    { 
+      icon: <FaLightbulb size={24} />, 
+      title: "Consultoría y Calidad", 
+      desc: "Brindo asesoría técnica a clientes para entregar soluciones de alta calidad, enfocadas en plataformas sostenibles y eficientes.", 
+      color: "#4f46e5" 
+    },
+    { 
+      icon: <FaDatabase size={24} />, 
+      title: "Desarrollo Moderno", 
+      desc: "Me apasiona utilizar tecnologías modernas, implementando APIs robustas, autenticación segura y gestión optimizada de bases de datos.", 
+      color: "#F97316" 
+    },
+    { 
+      icon: <FaLaptopCode size={24} />, 
+      title: "Enfoque UI / UX", 
+      desc: "Comprometido con el aprendizaje continuo en diseño de interfaces y experiencia de usuario para crear productos intuitivos y atractivos.", 
+      color: "#06b6d4" 
+    },
   ];
 
   return (
@@ -54,7 +74,7 @@ export default function AboutMe() {
                 </h3>
               </div>
 
-              <p className="text-sm md:text-base reveal" data-delay={`${base + 120}`} style={{ color: "#ffffff", lineHeight: 1.6 }}>
+              <p className="text-sm md:text-base reveal text-left" data-delay={`${base + 120}`} style={{ color: "#ffffff", lineHeight: 1.6 }}>
                 {item.desc}
               </p>
             </article>
