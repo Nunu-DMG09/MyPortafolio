@@ -24,6 +24,15 @@ export default function FormContacto() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg("");
+
+    const nameRegex = /^[A-Za-z\s]+$/;
+    if (!nameRegex.test(name)) {
+      setErrorMsg("El nombre solo debe contener letras y espacios.");
+      setStatus("error");
+      liveRef.current?.focus();
+      return;
+    }
+
     if (!name || !email || !message) {
       setErrorMsg("Por favor completa nombre, correo y mensaje.");
       setStatus("error");
@@ -75,7 +84,18 @@ export default function FormContacto() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <label className="flex flex-col reveal" data-delay="320">
             <span className="text-sm mb-2" style={{ color: "#9ca3af" }}>Nombre</span>
-            <input value={name} onChange={(e) => setName(e.target.value)} disabled={status === "sending"} className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] focus:outline-none" placeholder="Tu nombre" required />
+            <input 
+              value={name} 
+              onChange={(e) => {
+                
+                const val = e.target.value;
+                if (/^[A-Za-z\s]*$/.test(val)) setName(val);
+              }} 
+              disabled={status === "sending"} 
+              className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] focus:outline-none" 
+              placeholder="Tu nombre" 
+              required 
+            />
           </label>
 
           <label className="flex flex-col reveal" data-delay="360">
