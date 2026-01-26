@@ -46,7 +46,7 @@ const colorMap: Record<string, string> = {
   MySQL: "#4479A1",
   CodeIgniter: "#ef3b2d",
   AndroidStudio: "#3DDC84",
-  Java: "#e51f24", // CAMBIO: Color rojo para Java
+  Java: "#e51f24", 
   SQLite: "#003B57",
   Prisma: "#0ea5a4",
   Postgres: "#336791",
@@ -148,7 +148,7 @@ export default function Proyectos() {
                 background: "#071029",
                 border: "1px solid rgba(255,255,255,0.04)",
                 position: "relative",
-                paddingBottom: 68, // REDUCIDO de 88px a 68px
+                paddingBottom: 68, 
               }}
             >
               <div
@@ -175,7 +175,7 @@ export default function Proyectos() {
                 />
               </div>
 
-              <div className="p-6 text-left"> {/* AÑADIDO: text-left */}
+              <div className="p-6 text-left"> 
                 <h3
                   className="text-xl md:text-2xl font-semibold reveal"
                   data-delay={`${440 + p.id * 80}`}
