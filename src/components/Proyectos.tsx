@@ -148,7 +148,7 @@ export default function Proyectos() {
                 background: "#071029",
                 border: "1px solid rgba(255,255,255,0.04)",
                 position: "relative",
-                paddingBottom: 88,
+                paddingBottom: 68, // REDUCIDO de 88px a 68px
               }}
             >
               <div
@@ -175,7 +175,7 @@ export default function Proyectos() {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-6 text-left"> {/* AÑADIDO: text-left */}
                 <h3
                   className="text-xl md:text-2xl font-semibold reveal"
                   data-delay={`${440 + p.id * 80}`}
@@ -289,7 +289,7 @@ export default function Proyectos() {
                 .card-actions {
                   position: absolute;
                   right: 16px;
-                  bottom: 16px;
+                  bottom: 12px; /* REDUCIDO de 16px a 12px */
                   display: flex;
                   gap: 8px;
                   z-index: 10;
