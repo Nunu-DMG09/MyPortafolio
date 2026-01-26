@@ -105,7 +105,7 @@ export default function Experiencia() {
                         {job.description}
                       </p>
 
-                      {/* Pill "Destacado" (color sólido) + indicador de impacto (color sólido) */}
+                      {/* Pill "Destacado" (color sólido) */}
                       <div className="mt-4 flex items-center gap-3">
                         <span
                           aria-hidden
@@ -124,35 +124,8 @@ export default function Experiencia() {
                           </svg>
                           Destacado
                         </span>
-
-                        <div
-                          style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 8,
-                            padding: "6px 10px",
-                            borderRadius: 999,
-                            border: "1px solid rgba(255,255,255,0.03)",
-                            color: "#ffffff",
-                            fontSize: 13,
-                            background: "transparent",
-                          }}
-                        >
-                          <span
-                            aria-hidden
-                            style={{
-                              width: 10,
-                              height: 10,
-                              borderRadius: 6,
-                              background: "#F97316", // indicador de impacto sólido (orange)
-                              boxShadow: "0 4px 12px rgba(249,115,22,0.14)",
-                              display: "inline-block",
-                            }}
-                          />
-                          <span>Impacto: Alto</span>
-                        </div>
                       </div>
-                      {/* /Pill e indicador */}
+                      {/* /Pill */}
                     </div>
                   </div>
 
