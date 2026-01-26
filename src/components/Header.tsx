@@ -53,7 +53,7 @@ export default function Header() {
             </li>
           </ul>
 
-          <div className="ml-8 flex items-center">
+          <div className="ml-8 flex items-center gap-6">
             <a
               href="https://github.com/Nunu-DMG09"
               target="_blank"
@@ -61,10 +61,36 @@ export default function Header() {
               aria-label="GitHub"
               className="text-white hover:opacity-90 reveal"
               data-delay="500"
-              style={{ display: "inline-flex", alignItems: "center", color: "#ffffff", gap: 8 }}
+              style={{ display: "inline-flex", alignItems: "center", color: "#ffffff" }}
             >
               <FaGithub size={28} />
             </a>
+
+            <div className="flex items-center gap-3 pl-4 border-l border-white/10">
+              <a
+                href="/CV_DAVIDMESTA.pdf"
+                download
+                className="px-5 py-2 rounded-full text-sm font-medium shadow-sm reveal hover:shadow-lg transition-all"
+                data-delay="520"
+                style={{ background: "#4f46e5", color: "#ffffff" }}
+              >
+                Descargar CV
+              </a>
+              <a
+                href="https://wa.me/51926700418"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2 rounded-full text-sm font-medium reveal hover:bg-white/5 transition-all"
+                data-delay="540"
+                style={{
+                  border: "1px solid #22c55e",
+                  color: "#22c55e",
+                  background: "transparent",
+                }}
+              >
+                Escríbeme
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -84,7 +110,7 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="md:w-2/3 text-center md:text-right">
+            <div className="md:w-2/3 flex flex-col items-center text-center md:items-end md:text-right">
               <h1
                 className="text-4xl md:text-6xl font-extrabold leading-tight reveal"
                 data-delay="700"
@@ -101,37 +127,15 @@ export default function Header() {
                 Desarrollador Full Stack
               </p>
 
-              <h3
-                className="mt-4 text-base md:text-lg lg:text-xm reveal"
-                data-delay="800"
-                style={{ color: "#ffffff" }}
-              >
-                Apasionado en escribir código, aplicando arquitecturas y código limpio. Me enfoco en crear
-                soluciones mantenibles y eficientes usando buenas prácticas y colaboración en equipo. Énfasis en rendimiento, accesibilidad y escalabilidad.
-              </h3>
-
-              <div className="mt-8 flex items-center justify-center md:justify-end gap-4">
-                <a
-                  href="/CV_DAVIDMESTA.pdf"
-                  download
-                  className="px-6 py-3 md:px-8 md:py-4 rounded-full text-base font-medium shadow-sm reveal"
-                  data-delay="900"
-                  style={{ background: "#4f46e5", color: "#ffffff" }}
+              <div className="w-full flex justify-center md:justify-end">
+                <h3
+                  className="mt-4 text-base md:text-lg lg:text-xm reveal md:text-right max-w-xl"
+                  data-delay="800"
+                  style={{ color: "#ffffff" }}
                 >
-                  Descargar mi CV
-                </a>
-                <a
-                  href="mailto:davidmesta09@gmail.com"
-                  className="px-6 py-3 md:px-8 md:py-4 rounded-full text-base font-medium reveal"
-                  data-delay="1000"
-                  style={{
-                    border: "1px solid #22c55e",
-                    color: "#22c55e",
-                    background: "transparent",
-                  }}
-                >
-                  Contáctame
-                </a>
+                  Apasionado en escribir código, aplicando arquitecturas y código limpio. Me enfoco en crear
+                  soluciones mantenibles y eficientes usando buenas prácticas y colaboración en equipo. Énfasis en rendimiento, accesibilidad y escalabilidad.
+                </h3>
               </div>
             </div>
           </div>
