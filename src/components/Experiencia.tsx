@@ -60,13 +60,13 @@ export default function Experiencia() {
                 <div className="md:grid md:grid-cols-2 md:items-start">
                   <div className={`${isLeft ? "md:pr-8 md:text-right" : "md:order-2 md:pl-8 md:text-left"} w-full`}>
                     <div
-                      className="inline-block rounded-md p-6 md:p-8 transition-transform duration-300 ease-[cubic-bezier(.22,.9,.27,1)] hover:-translate-y-2 hover:shadow-2xl focus-within:-translate-y-2"
+                      className="inline-block rounded-md p-6 md:p-8 transition-transform duration-300 ease-[cubic-bezier(.22,.9,.27,1)] hover:-translate-y-2 hover:shadow-2xl focus-within:-translate-y-2 text-left"
                       style={{
                         background: "#071029", // fondo sólido de la card (oscuro)
                         border: "1px solid rgba(255,255,255,0.04)",
                       }}
                     >
-                      <div className="flex items-center justify-between md:justify-end gap-4">
+                      <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-3" aria-hidden>
                           <span
                             className="inline-flex items-center justify-center rounded-md"
