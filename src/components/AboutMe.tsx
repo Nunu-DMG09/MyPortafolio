@@ -2,90 +2,47 @@ import React from "react";
 import { FaCode, FaLaptopCode, FaDatabase, FaLightbulb } from "react-icons/fa";
 
 export default function AboutMe() {
-  const interests = [
-    { 
-      icon: <FaCode size={24} />, 
-      title: "Ingeniería de Software", 
-      desc: "Escribo código limpio y mantenible aplicando buenas prácticas y arquitecturas de software sólidas para garantizar sistemas escalables.", 
-      color: "#22c55e" 
-    },
-    { 
-      icon: <FaLightbulb size={24} />, 
-      title: "Consultoría y Calidad", 
-      desc: "Brindo asesoría técnica a clientes para entregar soluciones de alta calidad, enfocadas en plataformas sostenibles y eficientes.", 
-      color: "#4f46e5" 
-    },
-    { 
-      icon: <FaDatabase size={24} />, 
-      title: "Desarrollo Moderno", 
-      desc: "Me apasiona utilizar tecnologías modernas, implementando APIs robustas, autenticación segura y gestión optimizada de bases de datos.", 
-      color: "#F97316" 
-    },
-    { 
-      icon: <FaLaptopCode size={24} />, 
-      title: "Enfoque UI / UX", 
-      desc: "Comprometido con el aprendizaje continuo en diseño de interfaces y experiencia de usuario para crear productos intuitivos y atractivos.", 
-      color: "#06b6d4" 
-    },
+  const skills = [
+    { icon: <FaCode size={26} />, title: "Ingeniería de Software", desc: "Patrones de diseño, código limpio y arquitecturas robustas para sistemas críticos." },
+    { icon: <FaLaptopCode size={26} />, title: "UI / UX Design", desc: "Interfaces interactivas, fluidas y centradas absolutamente en la experiencia de usuario." },
+    { icon: <FaDatabase size={26} />, title: "Desarrollo Backend", desc: "APIs seguras, gestión de servidores y bases de datos relacionales ultra optimizadas." },
+    { icon: <FaLightbulb size={26} />, title: "Resolución de Problemas", desc: "Transformo requerimientos complejos en soluciones tecnológicas elegantes y simples." },
   ];
 
   return (
-    <section id="sobremi" className="max-w-5xl mx-auto px-6 py-20 reveal" data-delay="120" aria-labelledby="about-title">
-      <h2
-        id="about-title"
-        className="text-3xl md:text-4xl font-extrabold text-center mb-12 reveal"
-        data-delay="200"
-        style={{ color: "#22c55e", paddingBottom: 18 }}
-      >
-        Sobre Mí
-      </h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {interests.map((item, idx) => {
-          const base = 260 + idx * 100;
-          return (
-            <article
-              key={idx}
-              className="interest-card p-6 md:p-8 rounded-lg reveal transform transition-all duration-400"
-              data-delay={`${base}`}
-              style={{
-                background: "#071029",
-                border: "1px solid rgba(255,255,255,0.04)",
-              }}
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <span
-                  className="interest-icon inline-flex items-center justify-center rounded-lg reveal"
-                  data-delay={`${base + 40}`}
-                  style={{
-                    width: 56,
-                    height: 56,
-                    background: `${item.color}20`,
-                    color: item.color,
-                    transition: "all 320ms cubic-bezier(.22,.9,.27,1)",
-                  }}
-                  aria-hidden
-                >
-                  {item.icon}
-                </span>
-
-                <h3 className="text-xl md:text-2xl font-semibold reveal" data-delay={`${base + 80}`} style={{ color: "#22c55e" }}>
-                  {item.title}
-                </h3>
-              </div>
-
-              <p className="text-sm md:text-base reveal text-left" data-delay={`${base + 120}`} style={{ color: "#ffffff", lineHeight: 1.6 }}>
-                {item.desc}
-              </p>
-            </article>
-          );
-        })}
+    <section id="sobremi" className="max-w-6xl mx-auto px-6 py-32 reveal relative z-10">
+      <div className="flex flex-col md:flex-row justify-between items-end mb-20 reveal gap-6 border-b border-white/5 pb-10">
+        <div>
+          <h2 className="text-xs font-bold tracking-[0.3em] text-[#38BDF8] uppercase mb-3">Referencia</h2>
+          <h3 className="text-5xl md:text-6xl font-black tracking-tight text-white">Sobre mí</h3>
+        </div>
+        <p className="text-slate-400 max-w-sm mt-6 md:mt-0 text-left md:text-right hidden md:block text-lg font-light">
+          No solo escribo código. Construyo <span className="text-white font-medium">ecosistemas digitales</span> completos.
+        </p>
       </div>
 
-      <style>{`
-        .interest-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(2,6,23,0.35); }
-        .interest-card:hover .interest-icon { transform: scale(1.08) rotate(5deg); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
-      `}</style>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {skills.map((item, idx) => (
+          <article
+            key={idx}
+            className={`glass-card p-8 rounded-[2rem] reveal group relative overflow-hidden ${idx === 0 || idx === 3 ? 'md:col-span-2' : ''}`}
+            data-delay={`${idx * 100}`}
+          >
+            {/* Gradiente interno que sigue al hover (simulado con opacidad) */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#38BDF8]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-10 bg-black border border-white/10 text-white group-hover:text-[#38BDF8] group-hover:border-[#38BDF8]/50 transition-all duration-500 relative z-10 shadow-[0_0_20px_rgba(0,0,0,1)]">
+              {item.icon}
+            </div>
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
+              <p className="text-slate-400 font-light leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }
