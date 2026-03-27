@@ -15,7 +15,7 @@ export default function Header() {
    
       <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
         <nav className="pointer-events-auto bg-[rgba(0,0,0,0.4)] backdrop-blur-2xl border border-white/5 rounded-full px-6 py-3 flex items-center justify-between w-full max-w-5xl transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
-          <img src="/logo-nudav.webp" alt="Nudav Studio" className="w-24 md:w-32 lg:w-52 h-auto object-contain flex-shrink-0 grayscale brightness-200 transition-transform duration-300 hover:scale-105" />
+          <img src="/logo-nudav.webp" alt="Nudav Studio" className="w-22 md:w-30 lg:w-50 h-auto object-contain flex-shrink-0 grayscale brightness-200 transition-transform duration-300 hover:scale-105" />
           
           <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
             {['Experiencia', 'Proyectos', 'Habilidades', 'Contacto'].map((item) => (
