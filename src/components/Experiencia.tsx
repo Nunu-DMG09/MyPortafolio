@@ -15,7 +15,7 @@ export default function Experiencia() {
       </div>
 
       <div className="relative ml-8 md:ml-0">
-        {/* Línea central Neon */}
+      
         <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#38BDF8] to-transparent md:-translate-x-1/2 opacity-30"></div>
 
         <div className="space-y-20">
@@ -35,7 +35,7 @@ export default function Experiencia() {
                   </div>
                 </div>
 
-                {/* Nodo de la línea interactivo */}
+              
                 <div className="absolute left-[15px] md:left-1/2 w-4 h-4 rounded-full bg-black border-[4px] border-[#38BDF8] transform -translate-x-1/2 group-hover:shadow-[0_0_20px_#38BDF8] group-hover:scale-150 transition-all duration-500 z-10"></div>
               </div>
             );

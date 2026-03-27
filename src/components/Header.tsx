@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <header className="w-full relative overflow-hidden" ref={headerRef}>
-      {/* Isla de Navegación Glass */}
+   
       <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
         <nav className="pointer-events-auto bg-[rgba(0,0,0,0.4)] backdrop-blur-2xl border border-white/5 rounded-full px-6 py-3 flex items-center justify-between w-full max-w-5xl transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
           <img src="/logo-nudav.webp" alt="Nudav Studio" className="w-24 md:w-32 lg:w-52 h-auto object-contain flex-shrink-0 grayscale brightness-200 transition-transform duration-300 hover:scale-105" />
@@ -40,7 +40,7 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Hero Section */}
+    
       <div className="w-full min-h-screen flex items-center pt-32 pb-12 relative z-10">
         <div className="max-w-6xl mx-auto px-6 w-full flex flex-col-reverse md:flex-row items-center justify-between gap-16">
           
@@ -79,7 +79,7 @@ export default function Header() {
 
           <div className="md:w-2/5 flex justify-center reveal animate-float" data-delay="200">
             <div className="relative group">
-              {/* Anillo de luz cósmica rotando */}
+            
               <div className="absolute -inset-1 bg-gradient-to-r from-[#38BDF8] to-[#4F46E5] rounded-[3rem] blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-1000 animate-spin-slow" style={{ animation: "spin 10s linear infinite" }}></div>
               <div className="absolute inset-0 bg-[#000] rounded-[3rem] z-0"></div>
               <img

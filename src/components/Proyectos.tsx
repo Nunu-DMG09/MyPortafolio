@@ -92,211 +92,64 @@ const isLight = (hex = "#000000") => {
 
 export default function Proyectos() {
   const [filter, setFilter] = useState<"hosteado" | "colaborativo" | "personal">("hosteado");
-  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
   const visible = projects.filter((p) => p.type === filter);
 
-  const toggle = (id: number) => setExpanded((s) => ({ ...s, [id]: !s[id] }));
-
   return (
-    <section id="proyectos" className="max-w-6xl mx-auto px-6 py-16 reveal" data-delay="120" aria-labelledby="projects-title">
-      <h2
-        id="projects-title"
-        className="text-3xl md:text-4xl font-extrabold mb-12 text-center reveal"
-        data-delay="200"
-        style={{ color: "#22c55e" }}
-      >
-        Proyectos
-      </h2>
+    <section id="proyectos" className="max-w-7xl mx-auto px-6 py-32 reveal relative z-10">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-20 gap-8 reveal border-b border-white/5 pb-10">
+        <div>
+          <h2 className="text-xs font-bold tracking-[0.3em] text-[#38BDF8] uppercase mb-3">Portafolio</h2>
+          <h3 className="text-5xl md:text-6xl font-black tracking-tight text-white">Proyectos</h3>
+        </div>
 
-      {/* CAMBIO: flex-wrap para responsividad en móviles */}
-      <div className="flex justify-center gap-3 mb-8 reveal flex-wrap" data-delay="260">
-        <button
-          onClick={() => setFilter("hosteado")}
-          className={`px-5 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${filter === "hosteado" ? "shadow-md" : "opacity-90"}`}
-          style={{ background: filter === "hosteado" ? "#4f46e5" : "transparent", color: "#ffffff", border: "1px solid rgba(255,255,255,0.04)" }}
-        >
-          Desplegados
-        </button>
-        <button
-          onClick={() => setFilter("colaborativo")}
-          className={`px-5 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${filter === "colaborativo" ? "shadow-md" : "opacity-90"}`}
-          style={{ background: filter === "colaborativo" ? "#4f46e5" : "transparent", color: "#ffffff", border: "1px solid rgba(255,255,255,0.04)" }}
-        >
-          Colaborativos
-        </button>
-        <button
-          onClick={() => setFilter("personal")}
-          className={`px-5 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${filter === "personal" ? "shadow-md" : "opacity-90"}`}
-          style={{ background: filter === "personal" ? "#4f46e5" : "transparent", color: "#ffffff", border: "1px solid rgba(255,255,255,0.04)" }}
-        >
-          Personales
-        </button>
+        <div className="flex gap-2 glass-card p-1.5 rounded-full bg-black/50">
+          {['hosteado', 'colaborativo', 'personal'].map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f as any)}
+              className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${filter === f ? 'bg-white text-black' : 'text-slate-400 hover:text-white'}`}
+            >
+              {f === 'hosteado' ? 'Desplegados' : f}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {visible.map((p) => {
-          const [left, right] = p.title.split(" - ", 2);
-          const desc = p.description ?? "";
-          const isLong = desc.length > 120;
-          const isExpanded = !!expanded[p.id];
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {visible.map((p, idx) => {
+          const [title, subtitle] = p.title.split(" - ", 2);
           return (
-            <article
-              key={p.id}
-              className="rounded-lg overflow-hidden reveal transform transition-all duration-500"
-              data-delay={`${320 + p.id * 80}`}
-              style={{
-                background: "#071029",
-                border: "1px solid rgba(255,255,255,0.04)",
-                position: "relative",
-                paddingBottom: 68, 
-              }}
-            >
-              <div
-                className="w-full h-80 sm:h-88 md:h-72 lg:h-80 reveal"
-                data-delay={`${380 + p.id * 80}`}
-                style={{
-                  overflow: "hidden",
-                  position: "relative",
-                  transition: "transform 600ms cubic-bezier(.22,.9,.27,1)",
-                }}
-              >
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full h-full object-cover transition-transform duration-700"
-                  style={{ transformOrigin: "center", willChange: "transform", filter: "brightness(0.95)" }}
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 transition-opacity duration-700"
-                  style={{
-                    background: "linear-gradient(180deg, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.45) 100%)",
-                  }}
-                />
-              </div>
-
-              <div className="p-6 text-left"> 
-                <h3
-                  className="text-xl md:text-2xl font-semibold reveal"
-                  data-delay={`${440 + p.id * 80}`}
-                  style={{ color: "#22c55e", lineHeight: 1.05 }}
-                >
-                  <span style={{ display: "block", paddingBottom: 6, fontSize: "1.5rem", lineHeight: 1.06 }}>
-                    {left}
-                  </span>
-                  {right && (
-                    <span className="block" style={{ marginTop: 6, fontSize: "1.2rem", lineHeight: 1.02 }}>
-                      {right}
-                    </span>
+            <article key={p.id} className="glass-card rounded-[2.5rem] overflow-hidden reveal group flex flex-col h-full bg-[#050505]" data-delay={`${idx * 100}`}>
+              <div className="relative w-full h-72 overflow-hidden border-b border-white/5">
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 z-10 transition-opacity duration-500"></div>
+                <img src={p.image} alt={p.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out" />
+                
+                <div className="absolute inset-0 z-20 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm bg-black/40">
+                  {p.repo && p.type !== "hosteado" && (
+                     <a href={p.repo} target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition-transform"><FaGithub size={24} /></a>
                   )}
-                </h3>
-
-                {p.description && (
-                  <>
-                    <p className="mt-2 text-sm reveal" data-delay={`${480 + p.id * 80}`} style={{ color: "#ffffff" }}>
-                      {isLong && !isExpanded ? `${desc.slice(0, 120)}...` : desc}
-                    </p>
-                    {isLong && (
-                      <button
-                        onClick={() => toggle(p.id)}
-                        className="read-more-btn mt-2 text-sm rounded-full px-3 py-1 reveal" /* CAMBIO: clase read-more-btn añadida */
-                        style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#22c55e", background: "transparent" }}
-                      >
-                        {isExpanded ? "Leer menos" : "Leer más"}
-                      </button>
-                    )}
-                  </>
-                )}
-
-                <div className="mt-4 flex flex-wrap gap-3 reveal" data-delay={`${520 + p.id * 80}`}>
-                  {p.techs.map((t) => {
-                    const bg = colorMap[t] ?? "#6b7280";
-                    const fg = isLight(bg) ? "#000" : "#fff";
-                    return (
-                      <span
-                        key={t}
-                        className="tech-pill flex items-center gap-3 text-sm px-3 py-2 rounded-full"
-                        style={
-                          {
-                            background: "rgba(255,255,255,0.03)",
-                            transition: "all 280ms cubic-bezier(.22,.9,.27,1)",
-                            color: "#9ca3af",
-                            ['--tech-color' as any]: bg,
-                            ['--tech-foreground' as any]: fg,
-                          } as React.CSSProperties
-                        }
-                        aria-hidden
-                      >
-                        <span className="tech-icon" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
-                          <TechIcon tech={t} />
-                        </span>
-                        <span className="tech-label">{t}</span>
-                      </span>
-                    );
-                  })}
+                  {p.demo && p.type !== "personal" && (
+                     <a href={p.demo} target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-[#38BDF8] text-black flex items-center justify-center hover:scale-110 transition-transform"><FaTelegramPlane size={24} /></a>
+                  )}
                 </div>
               </div>
 
-              <div className="card-actions" aria-hidden>
-                {p.type !== "hosteado" && (
-                  <a
-                    href={p.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Repo"
-                    className="flex items-center justify-center rounded-md"
-                    style={{ width: 44, height: 44, borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)", background: "transparent", color: "#ffffff", transition: "transform 260ms ease" }}
-                  >
-                    <FaGithub size={18} />
-                  </a>
-                )}
+              <div className="p-8 flex flex-col flex-grow relative z-20">
+                <h4 className="text-2xl font-bold text-white mb-2 leading-tight">{title}</h4>
+                {subtitle && <span className="text-[#38BDF8] text-sm font-medium mb-6 block">{subtitle}</span>}
+                
+                <p className="text-slate-400 font-light text-sm leading-relaxed mb-8 flex-grow">
+                  {p.description}
+                </p>
 
-                {p.type !== "personal" && (
-                  <a
-                    href={p.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Live"
-                    className="flex items-center justify-center rounded-md"
-                    style={{ width: 44, height: 44, borderRadius: 10, background: "#4f46e5", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)", transition: "transform 260ms ease" }}
-                  >
-                    <FaTelegramPlane size={18} />
-                  </a>
-                )}
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {p.techs.map((t) => (
+                    <span key={t} className="text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-xl border border-white/5 bg-white/5 text-slate-300 group-hover:border-[#38BDF8]/30 transition-colors">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
-
-              <style>{`
-                article:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 30px 60px rgba(2,6,23,0.45); }
-                article:hover img { transform: scale(1.06); transition: transform 700ms cubic-bezier(.22,.9,.27,1); }
-
-                /* CAMBIO: Estilos hover para el botón Leer más */
-                .read-more-btn { transition: all 0.3s ease; }
-                .read-more-btn:hover {
-                  background: rgba(34, 197, 94, 0.1) !important;
-                  border-color: #22c55e !important;
-                  transform: translateX(4px);
-                }
-
-                .tech-pill { cursor: default; }
-                .tech-pill:hover {
-                  background: var(--tech-color) !important;
-                  color: var(--tech-foreground) !important;
-                  transform: translateY(-4px) scale(1.03);
-                  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-                }
-                .tech-pill:hover .tech-icon, .tech-pill:hover .tech-label { color: var(--tech-foreground) !important; }
-
-                .card-actions {
-                  position: absolute;
-                  right: 16px;
-                  bottom: 12px; /* REDUCIDO de 16px a 12px */
-                  display: flex;
-                  gap: 8px;
-                  z-index: 10;
-                }
-
-                a[aria-label]:hover { transform: translateY(-3px); }
-              `}</style>
             </article>
           );
         })}
