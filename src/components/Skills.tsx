@@ -1,23 +1,24 @@
 import React from "react";
 import { FaCoffee, FaDatabase, FaReact, FaNodeJs, FaTools, FaGithub, FaLock, FaNetworkWired, FaPaperPlane } from "react-icons/fa";
-import { SiJavascript, SiPython, SiPhp, SiExpress, SiTailwindcss, SiCodeigniter, SiMysql, SiPostgresql, SiVite, SiSqlite, SiMariadb } from "react-icons/si";
+import { SiJavascript, SiPython, SiPhp, SiExpress, SiTailwindcss, SiCodeigniter, SiMysql, SiPostgresql, SiVite, SiSqlite, SiMariadb, SiTypescript } from "react-icons/si";
 
 const sections = [
   {
     title: "Lenguajes de Programación",
     items: [
-      { id: "java", label: "Java", icon: FaCoffee, color: "#e51f24" }, // CAMBIO: Rojo
+      { id: "java", label: "Java", icon: FaCoffee, color: "#e51f24" }, 
       { id: "javascript", label: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
       { id: "python", label: "Python", icon: SiPython, color: "#3776AB" },
       { id: "php", label: "PHP", icon: SiPhp, color: "#777bb4" },
-      { id: "sql", label: "SQL", icon: FaDatabase, color: "#38bdf8" }, // CAMBIO: Azul brillante notorio
+      { id: "sql", label: "SQL", icon: FaDatabase, color: "#38bdf8" }, 
+      { id: "typescript", label: "TypeScript", icon: SiTypescript, color: "#3178c6" },
     ],
   },
   {
     title: "Frameworks & Librerías",
     items: [
       { id: "react", label: "React", icon: FaReact, color: "#61dafb" },
-      { id: "express", label: "Express.js", icon: SiExpress, color: "#000000" },
+      { id: "express", label: "Express.js", icon: SiExpress, color: "#FFFFFF" },
       { id: "node", label: "Node.js", icon: FaNodeJs, color: "#3C873A" },
       { id: "tailwind", label: "Tailwind CSS", icon: SiTailwindcss, color: "#06b6d4" },
       { id: "codeigniter", label: "CodeIgniter 4", icon: SiCodeigniter, color: "#ef3b2d" },
@@ -30,7 +31,7 @@ const sections = [
       { id: "mysql", label: "MySQL", icon: SiMysql, color: "#4479A1" },
       { id: "postgres", label: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
       { id: "sqlite", label: "SQLite", icon: SiSqlite, color: "#003B57" },
-      { id: "mariadb", label: "MariaDB", icon: SiMariadb, color: "#003545" },
+      { id: "mariadb", label: "MariaDB", icon: SiMariadb, color: "#FFFFFF" },
     ],
   },
   {
@@ -47,74 +48,36 @@ const sections = [
 
 export default function Skills() {
   return (
-    <section id="habilidades" className="max-w-4xl mx-auto px-6 py-12 reveal" aria-labelledby="skills-title">
-      <h2 id="skills-title" className="text-3xl md:text-4xl font-extrabold mb-12 text-center reveal" style={{ color: "#22c55e" }}>
-        Habilidades
-      </h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {sections.map((sec, sidx) => {
-          const sectionDelay = 220 + sidx * 120;
-          return (
-            <div key={sec.title} className="flex flex-col items-center reveal" data-delay={`${sectionDelay}`}>
-              <div className="flex items-center justify-center gap-3 mb-3">
-                <h3 className="text-lg font-semibold text-center" style={{ color: "#ffffff", padding: "6px 8px" }}>{sec.title}</h3>
-              </div>
-
-              <div className="flex flex-col gap-3 items-center w-full">
-                {sec.items.map((it, idx) => {
-                  const Icon = it.icon;
-                  const itemDelay = sectionDelay + 80 + idx * 60;
-                  return (
-                    <div
-                      key={it.id}
-                      className="skill-item flex items-center gap-4 p-3 rounded-lg w-full max-w-sm reveal"
-                      data-delay={`${itemDelay}`}
-                      style={{
-                        background: "rgba(255,255,255,0.02)",
-                        border: "1px solid rgba(255,255,255,0.04)",
-                        transition: "transform 220ms cubic-bezier(.22,.9,.27,1), box-shadow 220ms",
-                        cursor: "default",
-                      }}
-                      aria-hidden
-                    >
-                      <div
-                        className="skill-icon w-10 h-10 rounded-full flex items-center justify-center reveal"
-                        data-delay={`${itemDelay + 40}`}
-                        style={{
-                          background: "rgba(255,255,255,0.03)",
-                          border: `1px solid rgba(255,255,255,0.03)`,
-                          color: it.color,
-                          transition: "transform 220ms, box-shadow 220ms, background 220ms",
-                          flex: "0 0 40px",
-                        }}
-                      >
-                        <Icon size={20} />
-                      </div>
-
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                        <span style={{ color: "#ffffff", fontWeight: 600 }}>{it.label}</span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
+    <section id="habilidades" className="max-w-6xl mx-auto px-6 py-32 reveal">
+      <div className="text-center mb-24 reveal">
+        <h2 className="text-xs font-bold tracking-[0.3em] text-[#38BDF8] uppercase mb-3">Tech Stack</h2>
+        <h3 className="text-5xl md:text-6xl font-black tracking-tight text-white">Stack Tecnológico</h3>
       </div>
 
-      <style>{`
-        .skill-item:hover {
-          transform: translateX(6px);
-          box-shadow: 0 14px 40px rgba(2,6,23,0.45);
-          background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.025));
-        }
-        .skill-item:hover .skill-icon {
-          transform: scale(1.06);
-          box-shadow: 0 8px 30px rgba(2,6,23,0.35);
-        }
-      `}</style>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {sections.map((sec, sidx) => (
+          <div key={sec.title} className="glass-card p-10 md:p-12 rounded-[3rem] reveal relative overflow-hidden" data-delay={`${sidx * 100}`}>
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+            
+            <h4 className="text-xl font-bold text-white mb-10 flex items-center gap-4 relative z-10">
+              <span className="w-2 h-2 bg-[#38BDF8] rounded-full shadow-[0_0_10px_#38BDF8]"></span>
+              {sec.title}
+            </h4>
+            
+            <div className="flex flex-wrap gap-4 relative z-10">
+              {sec.items.map((it) => {
+                const Icon = it.icon;
+                return (
+                  <div key={it.id} className="flex items-center gap-3 px-5 py-3.5 rounded-2xl border border-white/5 bg-black hover:bg-white/5 transition-all duration-300 group cursor-default shadow-lg">
+                    <Icon size={20} style={{ color: it.color }} className="opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 filter group-hover:drop-shadow-[0_0_8px_currentColor]" />
+                    <span className="text-sm font-semibold text-slate-400 group-hover:text-white transition-colors">{it.label}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
