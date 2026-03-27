@@ -75,60 +75,34 @@ export default function FormContacto() {
   };
 
   return (
-    <section id="contacto" className="max-w-3xl mx-auto px-6 py-12 reveal" data-delay="140" aria-labelledby="contact-title">
-      <h2 id="contact-title" className="text-3xl md:text-4xl font-extrabold mb-12 text-center reveal" data-delay="200" style={{ color: "#22c55e" }}>
-        Contáctame
-      </h2>
+    <section id="contacto" className="max-w-5xl mx-auto px-6 py-32 reveal">
+      <div className="glass-card rounded-[4rem] p-10 md:p-20 relative overflow-hidden bg-black/80">
 
-      <form onSubmit={handleSubmit} className="space-y-6 reveal" data-delay="260" style={{ background: "rgba(11,17,29,0.6)", padding: 20, borderRadius: 12, border: "1px solid rgba(255,255,255,0.04)" }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <label className="flex flex-col reveal" data-delay="320">
-            <span className="text-sm mb-2" style={{ color: "#9ca3af" }}>Nombre</span>
-            <input 
-              value={name} 
-              onChange={(e) => {
-                
-                const val = e.target.value;
-                if (/^[A-Za-z\s]*$/.test(val)) setName(val);
-              }} 
-              disabled={status === "sending"} 
-              className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] focus:outline-none" 
-              placeholder="Tu nombre" 
-              required 
-            />
-          </label>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#4F46E5] opacity-20 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#38BDF8] opacity-10 blur-[150px] rounded-full pointer-events-none"></div>
 
-          <label className="flex flex-col reveal" data-delay="360">
-            <span className="text-sm mb-2" style={{ color: "#9ca3af" }}>Correo</span>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} disabled={status === "sending"} className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] focus:outline-none" placeholder="tu@correo.com" required />
-          </label>
+        <div className="text-center mb-16 relative z-10">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white mb-6 leading-none">Contáctame</h2>
+          <p className="text-slate-400 font-light text-lg md:text-xl">Ayudando a construir soluciones digitales innovadoras.</p>
         </div>
 
-        <label className="flex flex-col reveal" data-delay="400">
-          <span className="text-sm mb-2" style={{ color: "#9ca3af" }}>Asunto</span>
-          <input value={subject} onChange={(e) => setSubject(e.target.value)} disabled={status === "sending"} className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] focus:outline-none" placeholder="Asunto (opcional)" />
-        </label>
+        <form onSubmit={handleSubmit} className="space-y-8 relative z-10 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <input value={name} onChange={(e) => setName(e.target.value)} disabled={status === "sending"} className="w-full px-8 py-6 rounded-3xl bg-white/5 border border-white/10 focus:border-[#38BDF8] focus:bg-white/10 outline-none text-white placeholder-slate-500 transition-all font-medium text-lg shadow-inner" placeholder="Tu Nombre" required />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} disabled={status === "sending"} className="w-full px-8 py-6 rounded-3xl bg-white/5 border border-white/10 focus:border-[#38BDF8] focus:bg-white/10 outline-none text-white placeholder-slate-500 transition-all font-medium text-lg shadow-inner" placeholder="Tu Correo" required />
+          </div>
+          
+          <textarea value={message} onChange={(e) => setMessage(e.target.value)} disabled={status === "sending"} className="w-full px-8 py-6 rounded-3xl bg-white/5 border border-white/10 focus:border-[#38BDF8] focus:bg-white/10 outline-none text-white placeholder-slate-500 min-h-[200px] transition-all font-medium resize-none text-lg shadow-inner" placeholder="Tu Mensaje" required />
 
-        <label className="flex flex-col reveal" data-delay="440">
-          <span className="text-sm mb-2" style={{ color: "#9ca3af" }}>Mensaje</span>
-          <textarea value={message} onChange={(e) => setMessage(e.target.value)} disabled={status === "sending"} className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] focus:outline-none min-h-[160px]" placeholder="Escribe tu mensaje..." required />
-        </label>
-
-        <div aria-live="polite" tabIndex={-1} ref={liveRef} className="reveal" data-delay="520">
-          {status === "success" && <p className="text-sm" style={{ color: "#22c55e" }}>Mensaje enviado correctamente, Muchas gracias por comunicarte con Nudav Studio.</p>}
-          {status === "error" && errorMsg && <p className="text-sm" style={{ color: "#ffb4b4" }}>{errorMsg}</p>}
-        </div>
-
-        <div className="flex gap-3">
-          <button type="submit" disabled={status === "sending"} className="px-6 py-3 rounded-full font-medium reveal" data-delay="580" style={{ background: "linear-gradient(90deg,#22c55e,#16a34a)", color: "#000", boxShadow: "0 10px 30px rgba(34,197,94,0.14)" }}>
-            {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
+          {status === "success" && <div className="p-5 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-400 text-center font-semibold text-base backdrop-blur-md">¡Mensaje enviado a la velocidad de la luz! Gracias.</div>}
+          
+          <button type="submit" disabled={status === "sending"} className="w-full py-6 rounded-3xl font-black text-xl uppercase tracking-widest transition-all bg-white text-black hover:bg-[#38BDF8] hover:text-white hover:shadow-[0_0_50px_rgba(56,189,248,0.4)] disabled:opacity-50 mt-8 group">
+            <span className="group-hover:scale-105 transition-transform inline-block">
+              {status === "sending" ? "Procesando Datos..." : "Enviar Mensaje"}
+            </span>
           </button>
-
-          <button type="button" onClick={() => { setName(""); setEmail(""); setSubject(""); setMessage(""); setStatus("idle"); setErrorMsg(""); }} className="px-6 py-3 rounded-full font-medium reveal" data-delay="620" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#ffffff", background: "transparent" }}>
-            Limpiar
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </section>
   );
 }
