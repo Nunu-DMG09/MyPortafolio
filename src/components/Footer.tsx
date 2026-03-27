@@ -2,11 +2,14 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full py-8 mt-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <p className="text-sm md:text-base" style={{ color: "#9ca3af" }}>
-          Desarrollado por <span style={{ color: "#22c55e", fontWeight: 600 }}>David Mesta</span> alias{" "}
-          <span style={{ color: "#22c55e", fontWeight: 600 }}>Nudav Studio</span> © 2026
+    <footer className="w-full py-20 border-t border-white/5 bg-black relative overflow-hidden">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-1 bg-gradient-to-r from-transparent via-[#38BDF8] to-transparent opacity-20 blur-sm"></div>
+      
+      <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-8">
+        <h2 className="text-3xl font-black tracking-tighter text-white">DAVID MESTA.</h2>
+        <p className="text-sm font-medium text-slate-500 tracking-widest text-center uppercase">
+          © {new Date().getFullYear()} Nudav Studio.<br/>
+          <span className="font-bold text-slate-300 mt-2 inline-block">Hecho con precisión y código limpio.</span>
         </p>
       </div>
     </footer>
