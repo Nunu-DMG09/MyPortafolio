@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaRegCalendarAlt, FaArrowUp } from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -21,10 +21,10 @@ export default function BackToTop() {
     <button
       aria-label="Ir al inicio"
       onClick={goTop}
-      className={`fixed right-6 bottom-6 md:right-10 md:bottom-10 w-16 h-16 rounded-full flex items-center justify-center transition-all duration-700 z-50 backdrop-blur-xl ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
-      style={{ background: "rgba(0,0,0,0.6)", border: "1px solid rgba(56,189,248,0.3)", boxShadow: "0 0 30px rgba(0,0,0,0.8)" }}
+      className={`fixed right-6 bottom-6 md:right-10 md:bottom-10 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 z-50 backdrop-blur-xl cursor-pointer group hover:bg-[#38BDF8] hover:scale-110 hover:shadow-[0_0_30px_rgba(56,189,248,0.5)] ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
+      style={{ background: "rgba(0,0,0,0.6)", border: "1px solid rgba(56,189,248,0.3)" }}
     >
-      <FaArrowUp size={20} className="text-[#38BDF8] group-hover:-translate-y-1 transition-transform" />
+      <FaArrowUp size={18} className="text-[#38BDF8] group-hover:text-white group-hover:-translate-y-1 transition-all duration-300" />
     </button>
   );
 }
