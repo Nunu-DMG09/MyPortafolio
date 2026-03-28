@@ -42,25 +42,21 @@ export default function Proyectos() {
         {visible.map((p, idx) => {
           const [title, subtitle] = p.title.split(" - ", 2);
           return (
-            <article key={p.id} className="glass-card rounded-[2rem] overflow-hidden reveal group flex flex-col h-full bg-[#050505] transition-all hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(56,189,248,0.1)]">
-             
+            <article key={p.id} className="glass-card rounded-[2rem] overflow-hidden reveal group flex flex-col bg-[#050505] transition-all hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(56,189,248,0.1)]">
+              
               <div className="relative w-full h-56 md:h-64 overflow-hidden border-b border-white/5 shrink-0">
                 <img src={p.image} alt={p.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out opacity-80 group-hover:opacity-100" />
               </div>
 
-          
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
+              <div className="p-6 md:p-8 flex flex-col">
                 <h4 className="text-xl md:text-2xl font-bold text-white mb-1 leading-tight">{title}</h4>
                 {subtitle && <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-wider mb-4 block">{subtitle}</span>}
                 
-              
                 <p className="text-slate-400 font-light text-sm leading-relaxed mb-6">
                   {p.description}
                 </p>
 
-                
-                <div className="mt-auto">
-              
+                <div>
                   <div className="flex items-center gap-4 mb-6 pt-4 border-t border-white/5">
                     {p.repo && p.repo !== "#" && (
                        <a href={p.repo} target="_blank" rel="noreferrer" className="cursor-pointer flex items-center gap-2 text-xs font-bold text-white hover:text-[#38BDF8] transition-colors">
@@ -74,7 +70,6 @@ export default function Proyectos() {
                     )}
                   </div>
 
-                
                   <div className="flex flex-wrap gap-2">
                     {p.techs.map((t) => (
                       <span key={t} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 text-slate-300 group-hover:border-[#38BDF8]/30 transition-colors">
