@@ -8,7 +8,7 @@ const jobs = [
 
 export default function Experiencia() {
   return (
-    <section id="experiencia" className="max-w-5xl mx-auto px-6 py-32 reveal">
+    <section id="experiencia" className="max-w-5xl mx-auto px-6 py-16 md:py-20 reveal">
       <div className="text-center mb-24 reveal">
         <h2 className="text-xs font-bold tracking-[0.3em] text-[#38BDF8] uppercase mb-3">Trayectoria</h2>
         <h3 className="text-5xl md:text-6xl font-black tracking-tight text-white">Experiencia</h3>
