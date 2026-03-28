@@ -75,7 +75,7 @@ export default function FormContacto() {
   };
 
   return (
-    <section id="contacto" className="max-w-5xl mx-auto px-6 py-32 reveal">
+    <section id="contacto" className="max-w-5xl mx-auto px-6 py-16 md:py-20 reveal">
       <div className="glass-card rounded-[4rem] p-10 md:p-20 relative overflow-hidden bg-black/80">
 
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#4F46E5] opacity-20 blur-[150px] rounded-full pointer-events-none"></div>
