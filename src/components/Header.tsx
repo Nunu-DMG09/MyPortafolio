@@ -122,7 +122,7 @@ export default function Header() {
             </h1>
             
             <h2 className="text-xl md:text-3xl font-light text-slate-400 mb-6 reveal leading-tight">
-              Ingeniería de Software & <br className="hidden md:block"/>
+              <span className="font-bold text-white">Ingeniería de Software</span> & <br className="hidden md:block"/>
               <span className="font-bold text-white">Desarrollador Full Stack.</span>
             </h2>
             

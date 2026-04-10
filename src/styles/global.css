@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
 
 html {
   color-scheme: dark;
@@ -67,3 +67,12 @@ body {
   100% { transform: translateY(0px); }
 }
 .animate-float { animation: float 6s ease-in-out infinite; }
+
+/* Para esconder scrollbars en los filtros */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
