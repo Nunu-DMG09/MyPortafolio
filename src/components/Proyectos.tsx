@@ -40,7 +40,7 @@ export default function Proyectos() {
       <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6 reveal border-b border-white/5 pb-8">
         <div className="text-center md:text-left">
           <h2 className="text-xs font-bold tracking-[0.3em] text-[#38BDF8] uppercase mb-2">Portafolio</h2>
-          <h3 className="text-4xl md:text-5xl font-black tracking-tight text-white">Casos de Estudio</h3>
+          <h3 className="text-4xl md:text-5xl font-black tracking-tight text-white">Proyectos</h3>
         </div>
 
         <div className="flex gap-1 md:gap-2 glass-card p-1.5 rounded-full bg-black/50 overflow-x-auto max-w-full hide-scrollbar">
