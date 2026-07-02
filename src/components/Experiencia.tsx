@@ -1,7 +1,7 @@
 import React from "react";
 
 const jobs = [
-  { title: "Desarrollador Backend", company: "Municipalidad J.L.O.", date: "Ene 2026 — Presente", desc: "Desarrollo y mantenimiento backend para sistemas de la municipalidad. Implementación de APIs e integración segura con bases de datos y servicios internos." },
+  { title: "Desarrollador Backend", company: "Municipalidad J.L.O.", date: "Ene 2026 — Presente", desc: "Encargado del backend para el sistema de gestión documental en el área de Subgerencia de Habilitaciones Urbanas y Edificaciones. Desarrollo de una arquitectura sólida y APIs REST escalables para automatizar expedientes y optimizar trámites institucionales." },
   { title: "Desarrollador Full Stack", company: "Tecnico Joel", date: "Oct 2025 — Dic 2025", desc: "Liderazgo en el área de desarrollo. Definición de arquitecturas y desarrollo full-stack de soluciones escalables y reutilizables." },
   { title: "Desarrollador Backend", company: "Municipalidad J.L.O.", date: "Ago 2025 — Nov 2025", desc: "Responsable del desarrollo backend de sistemas internos, implementación de APIs e integración segura con bases de datos." },
   { title: "Programador Web", company: "Tecnico Joel", date: "Feb 2025 — Jun 2025", desc: "Desarrollo de landing pages interactivas. Foco intensivo en optimización de rendimiento, SEO técnico y accesibilidad." },
