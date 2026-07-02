@@ -24,9 +24,10 @@ const projects: Project[] = [
   { id: 2, title: "Corporación KM GROUP - Página web", description: "Sitio web corporativo para consultora especializada en gestión y normativas ISO. Diseñado para presentar servicios de auditoría y sostenibilidad mediante una interfaz moderna.", image: "/km-group.png", techs: ["HTML", "CSS", "JavaScript", "PHP", "Astro"], repo: "#", demo: "https://corporacionkmperu.com/", type: "hosteado" },
   { id: 3, title: "Vidafy Sergio Mesta - Landing Page", description: "Diseño de Landing Page estructurada para resaltar los beneficios de salud y calidad de vida con una navegación intuitiva orientada a la captación de clientes.", image: "/vidafysergio.png", techs: ["TypeScript", "React"], repo: "#", demo: "https://sergiomestavidafy.infinityfree.me/", type: "hosteado" },
   { id: 4, title: "Tecnico Joel - Tienda virtual", description: "E-commerce completo combinando tienda virtual de productos tecnológicos con un sistema de gestión de inventario para administración de stock en tiempo real.", image: "/tecnicojoel.png", techs: ["React", "JavaScript", "Express", "MySQL"], repo: "#", demo: "https://tiendatecnicojoel.vercel.app/", type: "hosteado" },
-  { id: 5, title: "NunuMedic - Sistema de ventas", description: "Sistema Fullstack para gestión integral de farmacias, automatiza inventarios y reportes en tiempo real con arquitectura escalable.", image: "/nunumedic.png", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "https://github.com/Nunu-DMG09/NunuMedic", demo: "#", type: "personal" },
-  { id: 6, title: "Ecolim SAC - Recolección residual", description: "Aplicación móvil para gestión de residuos industriales, optimizando la recolección y cumplimiento normativo mediante reportes automatizados.", image: "/nudav-circular1.png", techs: ["AndroidStudio", "Java", "SQLite"], repo: "https://github.com/Nunu-DMG09/EcolimSac", demo: "#", type: "personal" },
-  { id: 7, title: "Municipalidad Jose Leonardo Ortiz - Rendición de cuentas 2026", description: "Rendición de cuentas para la Municipalidad de José Leonardo Ortiz, presentando el desempeño y los resultados obtenidos durante el año 2026.", image: "/rendicion.jfif", techs: ["React", "TypeScript", "Tailwind", "PHP", "CodeIgniter"], repo: "#", demo: "https://rendicion-cuentas.munijlo.gob.pe/", type: "colaborativo" },
+  { id: 5, title: "Nunu Medic - Sistema de ventas", description: "Sistema Fullstack para gestión integral de farmacias, automatiza inventarios y reportes en tiempo real con arquitectura escalable.", image: "/nunumedic.png", techs: ["MySQL", "Express", "React", "Tailwind", "JavaScript"], repo: "https://github.com/Nunu-DMG09/NunuMedic", demo: "#", type: "personal" },
+  { id: 6, title: "Ecolim SAC - Recolección residual", description: "Aplicación móvil para gestión de residuos industriales, optimizando la recolección y cumplimiento normativo mediante reportes automatizados.", image: "/Ecolim.jpeg", techs: ["AndroidStudio", "Java", "SQLite"], repo: "https://github.com/Nunu-DMG09/EcolimSac", demo: "#", type: "personal" },
+  { id: 7, title: "Municipalidad Jose Leonardo Ortiz - Rendición de cuentas 2026", description: "Rendición de cuentas para la Municipalidad de José Leonardo Ortiz, presentando el desempeño y los resultados obtenidos durante el año 2026.", image: "/rendicion-cuentas.webp", techs: ["React", "TypeScript", "Tailwind", "PHP", "CodeIgniter"], repo: "#", demo: "https://rendicion-cuentas.munijlo.gob.pe/", type: "colaborativo" },
+  { id: 8, title: "League Of Sports - Sistema de puntos y Salón de la Fama", description: "Sistema de puntos y salón de la fama para League of Legends. Permite organizar torneos, formar equipos, asignar puntos a ganadores y canjear premios en el sistema.", image: "/Leaguesports.jpeg", techs: ["TypeScript", "React", "Express", "MySQL", "Tailwind"], repo: "https://github.com/Nunu-DMG09/LeagueOfSports", demo: "#", type: "personal" },
 ];
 
 export default function Proyectos() {
@@ -59,16 +60,28 @@ export default function Proyectos() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
         {visible.map((p) => {
           const [title, subtitle] = p.title.split(" - ", 2);
+          
+          const mainLink = p.demo && p.demo !== "#" ? p.demo : (p.repo && p.repo !== "#" ? p.repo : undefined);
+
           return (
-            
-            <article key={p.id} className="glass-card rounded-4xl overflow-hidden group flex flex-col bg-[#050505] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(56,189,248,0.15)] h-full">
+            <article key={p.id} className="relative glass-card rounded-4xl overflow-hidden group flex flex-col bg-[#050505] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(56,189,248,0.15)] h-full">
               
+              {mainLink && (
+                <a 
+                  href={mainLink} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="absolute inset-0 z-10 cursor-pointer"
+                  aria-label={`Ver detalles de ${title}`}
+                ></a>
+              )}
+
               <div className="relative w-full h-56 md:h-64 overflow-hidden border-b border-white/5 shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 z-10 pointer-events-none"></div>
                 <img src={p.image} alt={title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out opacity-80 group-hover:opacity-100" />
               </div>
 
-              <div className="p-8 flex flex-col flex-grow relative z-20">
+              <div className="p-8 flex flex-col flex-grow relative z-20 pointer-events-none">
                 <h4 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight">{title}</h4>
                 {subtitle && <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-widest mb-4 block">{subtitle}</span>}
                 
@@ -77,7 +90,7 @@ export default function Proyectos() {
                 </p>
 
                 <div className="mt-auto">
-                  <div className="flex items-center gap-6 mb-6 pt-6 border-t border-white/5">
+                  <div className="flex items-center gap-6 mb-6 pt-6 border-t border-white/5 pointer-events-auto relative z-30">
                     {p.repo && p.repo !== "#" && (
                        <a href={p.repo} target="_blank" rel="noreferrer" className="cursor-pointer flex items-center gap-2 text-xs font-bold text-white hover:text-[#38BDF8] transition-colors group/link">
                          <FaGithub size={18} className="group-hover/link:scale-110 transition-transform" /> Repositorio
