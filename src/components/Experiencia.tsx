@@ -1,21 +1,21 @@
 import React from "react";
 
 const jobs = [
-  { title: "Desarrollador Full Stack", company: "Tecnico Joel", date: "Oct 2025 — Presente", desc: "Liderazgo en el área de desarrollo. Definición de arquitecturas y desarrollo full-stack de soluciones escalables y reutilizables." },
+  { title: "Desarrollador Backend", company: "Municipalidad J.L.O.", date: "Ene 2026 — Presente", desc: "Desarrollo y mantenimiento backend para sistemas de la municipalidad. Implementación de APIs e integración segura con bases de datos y servicios internos." },
+  { title: "Desarrollador Full Stack", company: "Tecnico Joel", date: "Oct 2025 — Dic 2025", desc: "Liderazgo en el área de desarrollo. Definición de arquitecturas y desarrollo full-stack de soluciones escalables y reutilizables." },
   { title: "Desarrollador Backend", company: "Municipalidad J.L.O.", date: "Ago 2025 — Nov 2025", desc: "Responsable del desarrollo backend de sistemas internos, implementación de APIs e integración segura con bases de datos." },
   { title: "Programador Web", company: "Tecnico Joel", date: "Feb 2025 — Jun 2025", desc: "Desarrollo de landing pages interactivas. Foco intensivo en optimización de rendimiento, SEO técnico y accesibilidad." },
 ];
 
 export default function Experiencia() {
   return (
-    <section id="experiencia" className="max-w-5xl mx-auto px-6 py-16 md:py-20 reveal">
+    <section id="experiencia" className="max-w-5xl mx-auto px-6 py-16 md:py-32 reveal">
       <div className="text-center mb-24 reveal">
         <h2 className="text-xs font-bold tracking-[0.3em] text-[#38BDF8] uppercase mb-3">Trayectoria</h2>
         <h3 className="text-5xl md:text-6xl font-black tracking-tight text-white">Experiencia</h3>
       </div>
 
       <div className="relative ml-8 md:ml-0">
-      
         <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#38BDF8] to-transparent md:-translate-x-1/2 opacity-30"></div>
 
         <div className="space-y-20">
@@ -35,7 +35,6 @@ export default function Experiencia() {
                   </div>
                 </div>
 
-              
                 <div className="absolute left-[15px] md:left-1/2 w-4 h-4 rounded-full bg-black border-[4px] border-[#38BDF8] transform -translate-x-1/2 group-hover:shadow-[0_0_20px_#38BDF8] group-hover:scale-150 transition-all duration-500 z-10"></div>
               </div>
             );
