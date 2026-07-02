@@ -109,13 +109,7 @@ export default function Header() {
         <div className="max-w-6xl mx-auto px-6 w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12">
           
           <div className="md:w-3/5 flex flex-col items-center md:items-start text-center md:text-left z-20">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-6 reveal backdrop-blur-md">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38BDF8] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#38BDF8]"></span>
-              </span>
-              <span className="text-xs font-semibold text-slate-300 tracking-wider uppercase">Disponible para proyectos</span>
-            </div>
+            
             
             <h1 className="text-5xl md:text-[5.5rem] font-black tracking-tighter leading-[1.1] mb-4 reveal text-gradient">
               David Mesta
@@ -131,9 +125,8 @@ export default function Header() {
             </p>
             
             <div className="flex flex-wrap gap-4 reveal justify-center md:justify-start w-full">
-              <a href="#proyectos" onClick={(e) => handleNav(e, "#proyectos")} className="cursor-pointer group relative px-8 py-4 rounded-full font-bold transition-all bg-white text-black overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#38BDF8] to-[#4F46E5] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300">Explorar Trabajo</span>
+              <a href="#proyectos" onClick={(e) => handleNav(e, "#proyectos")} className="cursor-pointer px-8 py-4 rounded-full font-bold transition-all duration-300 bg-white text-black hover:bg-[#38BDF8] hover:text-white hover:shadow-[0_0_25px_rgba(56,189,248,0.5)]">
+                Explorar Trabajo
               </a>
               <a href="https://wa.me/51926700418" target="_blank" rel="noreferrer" className="cursor-pointer px-8 py-4 rounded-full font-bold transition-all border border-white/10 text-white hover:bg-white/5 hover:border-[#38BDF8]/50">
                 Contactar
