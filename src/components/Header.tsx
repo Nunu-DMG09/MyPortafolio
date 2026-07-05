@@ -1,25 +1,11 @@
-import React, { useRef, useState, useEffect } from "react";
-import { FaGithub, FaBars, FaTimes } from "react-icons/fa";
+import React, { useRef } from "react";
+import { FaGithub } from "react-icons/fa";
 
 export default function Header() {
   const headerRef = useRef<HTMLElement | null>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isMenuOpen]);
 
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    setIsMenuOpen(false); 
     if (id === "#top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -29,14 +15,12 @@ export default function Header() {
   };
 
   return (
-    
     <header className="w-full relative" ref={headerRef} id="top">
       
-      
-      <div className="fixed top-4 md:top-6 left-0 right-0 z-[100] flex justify-center px-4 pointer-events-none">
+      {/* Añadí 'hidden md:flex' aquí para que desaparezca en móviles */}
+      <div className="hidden md:flex fixed top-4 md:top-6 left-0 right-0 z-[100] justify-center px-4 pointer-events-none">
         <nav className="pointer-events-auto bg-[rgba(0,0,0,0.85)] backdrop-blur-2xl border border-white/10 rounded-full px-5 py-3 flex items-center justify-between w-full max-w-5xl transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
           
-        
           <a href="#top" onClick={(e) => handleNav(e, "#top")} className="cursor-pointer flex-shrink-0 group z-[110]">
             <img 
               src="/logo-nudav.webp" 
@@ -45,7 +29,6 @@ export default function Header() {
             />
           </a>
           
-      
           <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
             {['Experiencia', 'Proyectos', 'Habilidades', 'Contacto'].map((item) => (
               <li key={item} className="relative group">
@@ -66,42 +49,7 @@ export default function Header() {
               CV
             </a>
           </div>
-
-        
-          <button 
-            type="button"
-            className="md:hidden text-white cursor-pointer p-3 -mr-2 relative z-[110]"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <FaTimes size={24} className="text-[#38BDF8]" /> : <FaBars size={24} />}
-          </button>
         </nav>
-      </div>
-
-     
-      <div 
-        className={`fixed inset-0 bg-black/95 backdrop-blur-xl z-[90] transition-all duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 ${
-          isMenuOpen ? 'opacity-100 visible pointer-events-auto' : 'opacity-0 invisible pointer-events-none'
-        }`}
-      >
-        <ul className="flex flex-col items-center gap-8 text-2xl font-bold text-slate-300 w-full px-6">
-            {['Experiencia', 'Proyectos', 'Habilidades', 'Contacto'].map((item) => (
-              <li key={item} className="w-full text-center">
-                <a className="cursor-pointer block w-full py-3 hover:text-[#38BDF8] transition-colors" href={`#${item.toLowerCase()}`} onClick={(e) => handleNav(e, `#${item.toLowerCase()}`)}>
-                  {item}
-                </a>
-              </li>
-            ))}
-        </ul>
-        <div className="flex flex-col items-center gap-6 mt-4">
-          <a href="https://github.com/Nunu-DMG09" target="_blank" rel="noreferrer" className="cursor-pointer text-slate-300 hover:text-[#38BDF8] transition-colors flex items-center gap-3">
-            <FaGithub size={28} /> <span className="text-lg font-medium">GitHub</span>
-          </a>
-          <a href="/CV_DAVIDMESTA.pdf" download className="cursor-pointer px-10 py-4 rounded-full text-sm font-bold tracking-widest uppercase bg-[#38BDF8] text-black shadow-[0_0_20px_rgba(56,189,248,0.4)]">
-            Descargar CV
-          </a>
-        </div>
       </div>
 
       {/* CONTENIDO HERO (Para evitar problemas de overflow, lo encapsulamos solo a este div) */}
@@ -109,7 +57,6 @@ export default function Header() {
         <div className="max-w-6xl mx-auto px-6 w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12">
           
           <div className="md:w-3/5 flex flex-col items-center md:items-start text-center md:text-left z-20">
-            
             
             <h1 className="text-5xl md:text-[5.5rem] font-black tracking-tighter leading-[1.1] mb-4 reveal text-gradient">
               David Mesta
