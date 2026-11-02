@@ -45,7 +45,7 @@ export default function Header() {
               <FaGithub size={22} />
             </a>
             <div className="w-px h-5 bg-white/10 mx-1"></div>
-            <a href="/CV_DAVIDMESTA.pdf" download className="cursor-pointer px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all bg-white/5 text-white border border-white/10 hover:bg-[#38BDF8] hover:border-[#38BDF8] hover:text-black hover:shadow-[0_0_20px_rgba(56,189,248,0.5)]">
+            <a href="/CV-DAVID_MESTA.pdf" download className="cursor-pointer px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all bg-white/5 text-white border border-white/10 hover:bg-[#38BDF8] hover:border-[#38BDF8] hover:text-black hover:shadow-[0_0_20px_rgba(56,189,248,0.5)]">
               CV
             </a>
           </div>
@@ -86,7 +86,7 @@ export default function Header() {
               <div className="absolute -inset-1 bg-gradient-to-r from-[#38BDF8] to-[#4F46E5] rounded-[3rem] blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-1000 animate-spin-slow" style={{ animation: "spin 10s linear infinite" }}></div>
               <div className="absolute inset-0 bg-[#000] rounded-[3rem] z-0"></div>
               <img
-                src="/david-mesta-2.webp"
+                src="/FOTO-DAVID-MESTA.png"
                 alt="David Mesta"
                 className="w-56 h-56 md:w-[380px] md:h-[380px] object-cover rounded-[3rem] relative z-10 border border-white/10 grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 object-top"
               />
